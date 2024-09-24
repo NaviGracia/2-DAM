@@ -1,12 +1,12 @@
-import java.io.IOException;
-import java.util.*;
-import java.lang.*;
+import java.io.IOError;
+import java.util.Scanner;
 
-public class Runtime {
+public class ProcessLauncher {
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {
-        try { 
-            Process p = Runtime.getRuntime().exec("kcalc");
+        try {
+            ProcessBuilder pb = new ProcessBuilder("kcalc");
+            Process p = pb.start();
             
             boolean cont = true;
             do {
@@ -20,7 +20,6 @@ public class Runtime {
                     p.destroy();
                 } else if (respuesta.equalsIgnoreCase("n")) {
                     cont = false;
-                    System.out.println("Esperamos a que el proceso muera");
                 } else{
                     System.out.println("Letra mal introducida.");
                     Thread.sleep(2000);
@@ -36,8 +35,7 @@ public class Runtime {
             e.printStackTrace();
         } catch(InterruptedException e){
             e.printStackTrace();
-        }finally{
-            sc.close();
         }
     }
 }
+
