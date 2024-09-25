@@ -1,4 +1,0 @@
-package Ejercicios
-
-class khjh {
-}
