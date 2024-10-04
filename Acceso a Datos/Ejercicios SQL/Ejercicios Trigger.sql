@@ -196,8 +196,8 @@ CREATE OR REPLACE TRIGGER tr_actual_nciclis
 	FOR EACH ROW
 	execute FUNCTION public.fc_actual_nciclis()
 
-/*11. Crea el/los disparador(es) necesarios para mantener un campo en la tabla 
-grupo que mantenga el número de usuarios que participan. 
+/*11. Crea el/los disparador(es) necesarios para mantener un campo en la 
+tabla grupo que mantenga el número de usuarios que participan. 
 (Necesitaréis un campo nuevo nparticipantes en grupo)*/
 CREATE OR REPLACE FUNCTION public.actualizar_num_usu_grupo()
 RETURNS trigger
@@ -221,28 +221,25 @@ CREATE OR REPLACE TRIGGER actualizar_num_usu_grupo
 a) sumar un año a aquellos ciclistas que no hayan ganado ninguna etapa 
 */
 CREATE OR REPLACE FUNCTION public.anyos_ciclista()
-RETURNS trigger
+/*Falta algo*/
 LANGUAGE 'plpgsql'
 AS $BODY$
 BEGIN
-		IF (SELECT COUNT(*) FROM etapa WHERE dorsal = NEW.dorsal) = 0 THEN
-			UPDATE ciclista SET edad = edad + 1;
-		ELSE
-			RETURN NEW;
-		END IF;
+	UPDATE public.ciclista
+	SET edad = edad+1 WHERE dorsal NOT IN (SELECT dorsal FROM etapa);
 END;
 $BODY$;
+
+SELECT anyos_ciclista();
 /*
 b) restar uno a aquellos que hayan ganado más de una 
 */
 CREATE OR REPLACE FUNCTION public.anyos_ciclista()
-RETURNS trigger
+
 LANGUAGE 'plpgsql'
 AS $BODY$
 BEGIN
-		IF (SELECT COUNT(*) FROM etapa WHERE dorsal = NEW.dorsal) = 0 THEN
-			UPDATE ciclista SET edad = edad + 1 WHERE dorsal = NEW.dorsal;
-		ELSE
+		IF (SELECT COUNT(*) FROM etapa WHERE dorsal = NEW.dorsal) > 1 THEN
 			UPDATE ciclista SET edad = edad - 1 WHERE dorsal = NEW.dorsal;
 		END IF;
 END;
@@ -253,36 +250,37 @@ algún mallot (si alguien llevó 50 veces el rojo y otro llevó 20 veces el
 rojo y alguien llevó 70 veces el amarillo, sumo 1000 años sólo al ciclista 
 del amarillo).
 */
+/*Usar all o alguna mierda de estas*/
+
 CREATE OR REPLACE FUNCTION public.anyos_ciclista()
 RETURNS trigger
 LANGUAGE 'plpgsql'
 AS $BODY$
 BEGIN
-		IF (SELECT COUNT(*) FROM etapa WHERE dorsal = NEW.dorsal) = 0 THEN
-			UPDATE ciclista SET edad = edad + 1 WHERE dorsal = NEW.dorsal;
-		ELSE
-			UPDATE ciclista SET edad = edad - 1 WHERE dorsal = NEW.dorsal;
-		END IF;
-		IF (SELECT MAX())
+		edad = edad + 100
 END;
 $BODY$;
-/*
-d) sumar 100 años al ciclista que más veces llevó cada mallot*/
-CREATE OR REPLACE FUNCTION public.actualizar_num_usu_grupo()
-RETURNS trigger
+/*d) sumar 100 años al ciclista que más veces llevó cada mallot*/
+/*Hecho con Cursor*/
+CREATE OR REPLACE FUNCTION public.anyos_ciclista_100()
 LANGUAGE 'plpgsql'
-AS $BODY$
+
+DECLARE
+	dorsalVar integer;
+	cur CURSOR FOR SELECT DISTINCT ON (codigo), dorsal, COUNT(*) AS conteo FROM llevar l1
+		GROUP BY codigo, dorsal 
 BEGIN
-		UPDATE grupo SET nparticipantes = (SELECT COUNT(*) FROM usuariogrupo WHERE NEW.idgrupo = idgrupo);
-		RETURN NEW;
+	OPEN cur;
+		LOOP
+			FETCH cur INTO dorsalVar;
+			EXIT WHEN NOT FOUND;
+				UPDATE public.ciclista SET edad = edad + 100 WHERE dorsal = dorsalVar
+		END LOOP;
+	CLOSE cur;
 END;
 $BODY$;
 
 
-CREATE OR REPLACE TRIGGER actualizar_num_usu_grupo
-	AFTER INSERT OR UPDATE OF idgrupo
-	ON public.usuariogrupo
-	FOR EACH ROW
-	execute FUNCTION public.actualizar_num_usu_grupo()
-
-
+/*16*/
+/*d)No EXISTAN puertos con altura mayor de 5000*/
+ALTER TABLE 
