@@ -8,18 +8,31 @@ BEGIN;
 COMMIT;
 
 DELETE FROM pertence WHERE dni = '1'
-SELECT * FROM pertence
+SELECT * FROM CLUB
 SELECT * FROM grupo
-
-
-
-
-
 
 ERROR:  Key (cod)=(1) is not present in table "grupo".insert or update on table "pertence" violates foreign key constraint "fk_cod_grupo" 
 
 ERROR:  insert or update on table "pertence" violates foreign key constraint "fk_cod_grupo"
 SQL state: 23503
 Detail: Key (cod)=(1) is not present in table "grupo".
+
+
+/*3. Evita que un club tenga más de un grupo*/
+check_1club_1grupo
+
+/*4. Todos los clubes deben de tener algún grupo.*/
+YA HECHO
+
+
+/*3. Evita que un club tenga más de un grupo*/
+
+
+/*3. Evita que un club tenga más de un grupo*/
+
+
+/*3. Evita que un club tenga más de un grupo*/
+
+
 
 

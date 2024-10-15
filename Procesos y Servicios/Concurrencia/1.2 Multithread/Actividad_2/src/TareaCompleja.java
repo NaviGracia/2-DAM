@@ -1,16 +1,15 @@
-package Actividad2;
 public class TareaCompleja implements Runnable{
     Counter c;
     
-    public TareaCompleja() {
-        this.c = new Counter();
+    public TareaCompleja(Counter c) {
+        this.c = c;
     }
 
     @Override
     public void run() {
-        c.increase();
         Thread hiloActual = Thread.currentThread();
         String nombreHilo = hiloActual.getName();
+        c.increase();
         System.out.println( "Hilo: " + nombreHilo + " Valor Counter: " + c.getCount());
     }
 }

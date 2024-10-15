@@ -1,4 +1,3 @@
-package Actividad2;
 public class Counter {
     int count;
 
@@ -10,8 +9,8 @@ public class Counter {
         return count;
     }
 
-    public int increase(){
-        return this.count + 1;
+    public void increase(){
+        count += 1;
     }
 
 

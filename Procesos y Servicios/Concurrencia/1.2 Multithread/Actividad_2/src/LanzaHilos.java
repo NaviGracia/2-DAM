@@ -1,12 +1,11 @@
-package Actividad2;
-
 public class LanzaHilos {
     public static void main(String[] args) {
         int NUM_HILOS=10;
+        Counter c = new Counter();
         Thread[] hilosAsociados;
         hilosAsociados = new Thread[NUM_HILOS];
         for (int i=0;i<NUM_HILOS;i++){
-            TareaCompleja t = new TareaCompleja();
+            TareaCompleja t = new TareaCompleja(c);
             Thread hilo = new Thread(t);
             hilo.setName("Hilo: "+i);
             hilo.start();
