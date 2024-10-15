@@ -9,7 +9,7 @@ public class Counter {
         return count;
     }
 
-    public void increase(){
+    public synchronized void increase(){
         count += 1;
     }
 
