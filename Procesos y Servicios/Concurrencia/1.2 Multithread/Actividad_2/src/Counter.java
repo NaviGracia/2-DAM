@@ -12,6 +12,4 @@ public class Counter {
     public synchronized void increase(){
         count += 1;
     }
-
-
 }
