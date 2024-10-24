@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    <p id="text">Hola Mundo!!!</p>
+    <button id="btn" onclick="changeText(this)">CHANGE TEXT</button>
+    <script>
+        const t = document.getElementById("text");
+        const newText = "HELLO WORLD!!!"
+        function changeText(id){
+            if (t.innerHTML == newText) {
+                t.innerHTML = "Hola Mundo!!!"
+            }else{t.innerHTML = "HELLO WORLD!!!"}
+        }
+    </script>
+</body>
+</html>

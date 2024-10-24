@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 2</title>
+</head>
+<body>
+    <div id="text">Hola Mundo!!!</div>
+    <button id="btn" onclick="changeColor(this)">CHANGE COLOR</button>
+    <script>
+        const t = document.getElementById("text");
+        function changeColor(id){
+            if (t.style.backgroundColor == "cyan") {
+                t.style.backgroundColor = "white"
+            }else{t.style.backgroundColor = "cyan"}
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5</title>
+</head>
+<body>
+    <ul id="lista">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+    </ul>
+    <button id="btnShow" onclick="deleteElement(this)">ADD</button>
+    <script>
+        let ul = document.getElementById("lista");
+        
+        function deleteElement(id){
+             ul.removeChild(ul.lastElementChild)
+        }
+    </script>
+</body>
+</html>
