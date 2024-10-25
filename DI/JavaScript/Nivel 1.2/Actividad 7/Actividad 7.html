@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 7</title>
+</head>
+<body>
+    <img id="img" src="img/baixa.jpeg" alt="Imagen">
+    <script>
+        var img = document.getElementById("img");
+        img.addEventListener("click", changeImage);
+
+        function changeImage(){
+            img.src = "img/mar.jpeg";
+        }
+    </script>
+</body>
+</html>

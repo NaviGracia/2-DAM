@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actividad 5</title>
+    <title>Actividad 6</title>
 </head>
 <body>
-    <ul id="lista">
+    <ul>
         <li>Ivan García</li>
         <li>Ivan García</li>
         <li>Ivan García</li>
@@ -14,12 +14,15 @@
         <li>Ivan García</li>
         <li>Ivan García</li>
     </ul>
-    <button id="btnShow" onclick="deleteElement(this)">ADD</button>
+    <button id="btnCount">Count Elements</button>
     <script>
-        let ul = document.getElementById("lista");
+        var ul = document.querySelectorAll("li");
+        document.getElementById("btnCount").addEventListener("click", showCountElements);
         
-        function deleteElement(id){
-             ul.removeChild(ul.lastElementChild)
+        function showCountElements(){
+            const text = document.createElement("p");
+            text.innerHTML = ul.length
+            document.body.appendChild(text);
         }
     </script>
 </body>

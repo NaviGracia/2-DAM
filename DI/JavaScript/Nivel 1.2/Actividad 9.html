@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 9</title>
+</head>
+<body>
+    <div style="background-color: aqua;">Soy un div</div>
+    <script>
+        document.getElementById("valName").addEventListener("click", validateName);
+        function validateName(){
+            if (document.getElementById("nombre").value == "") {
+                alert("Campo Vacio")
+            }
+        }
+    </script>
+</body>
+</html>
