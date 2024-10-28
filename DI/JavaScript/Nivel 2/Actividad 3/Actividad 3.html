@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Actividad 3</title>
+    
+</head>
+<body>
+    <p>Esto es un P, P de Parrafo</p>
+    <button id="changeVisibility">HIDE</button>
+    <script>
+        var p = document.querySelector("p")
+        var btn = document.getElementById("changeVisibility")
+        btn.addEventListener("click", changeVisibility)
+
+       function changeVisibility(){
+        if(btn.innerHTML == "HIDE"){
+            btn.innerHTML = "SHOW"
+            p.classList.add("desaparecer")        
+        }else{
+            btn.innerHTML = "HIDE"
+            p.classList.remove("desaparecer")        
+            p.classList.add("aparecer")  
+        }
+        }
+    </script>
+</body>
+</html>

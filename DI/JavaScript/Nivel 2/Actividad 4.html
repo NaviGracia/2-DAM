@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 4</title>
+</head>
+<body>
+    <input type="text">
+    <button id="addElement">ADD ELEMENT</button>
+    <ul></ul>
+    <script>
+        var it = document.querySelector("input")
+        var btn = document.getElementById("addElement")
+        btn.addEventListener("click", addElement)
+
+       function addElement(){
+            let ul = document.querySelector("ul");
+        
+            let newLI = document.createElement("li")
+            newLI.innerHTML = it.value;
+             ul.appendChild(newLI);
+        
+        }
+    </script>
+</body>
+</html>

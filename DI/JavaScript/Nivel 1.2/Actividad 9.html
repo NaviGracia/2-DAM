@@ -6,13 +6,30 @@
     <title>Actividad 9</title>
 </head>
 <body>
-    <div style="background-color: aqua;">Soy un div</div>
+    <div id="div" style="height: 200; width: 200 ;background-color: aqua;">Soy un div</div>
+    <button id="aumentar">AUMENTAR DIV</button>
+    <button id="reducir">REDUCIR DIV</button>
     <script>
-        document.getElementById("valName").addEventListener("click", validateName);
-        function validateName(){
-            if (document.getElementById("nombre").value == "") {
-                alert("Campo Vacio")
-            }
+        var div = document.getElementById("div");
+        div.style.width = "100px";
+        div.style.height = "25px"; 
+        document.getElementById("aumentar").addEventListener("click", aumentarDIV);
+        document.getElementById("reducir").addEventListener("click", reducirDIV);
+        var actualWidth = 100;
+        var actualHeight = 25;
+        
+        function aumentarDIV(){
+            actualWidth += 50
+            actualHeight += 12.5
+            div.style.width = actualWidth + "px";
+            div.style.height = actualHeight + "px"; 
+        }
+
+        function reducirDIV(){
+            actualWidth -= 50
+            actualHeight -= 12.5
+            div.style.width = actualWidth + "px";
+            div.style.height = actualHeight + "px"; 
         }
     </script>
 </body>

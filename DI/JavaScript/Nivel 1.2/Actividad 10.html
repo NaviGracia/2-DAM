@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 10</title>
+</head>
+<body>
+    <p>HORA ACTUAL:</p>
+    <p id="reloj"></p>
+
+    <script>
+       setInterval("actualizarReloj()", 1000);
+
+       function actualizarReloj(){
+            var momentoActual = new Date();
+            var hora = momentoActual.getHours();
+            var minuto = momentoActual.getMinutes();
+            var segundo = momentoActual.getSeconds();
+            document.getElementById("reloj").innerHTML = hora + " : " + minuto + " : " + segundo;
+        }
+    </script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.example.imcapp
 
+import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +21,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private fun initComponents(){
         viewMale = findViewById(R.id.viewMale)
         viewFemale = findViewById(R.id.viewFemale)
+        rsHeight = findViewById(R.id.rsHeight)
+        tvHeight = findViewById(R.id.tvHeight)
     }
 
     private fun initListeners(){
@@ -32,6 +35,10 @@ class ImcCalculatorActivity : AppCompatActivity() {
             cardSelected = true
             setGenderColor()
             cardSelected = false
+        }
+
+        rsHeight.addOnChangeListener { _, value, _ ->
+            tvHeight.text = DecimalFormat("#.##").format(value) + "cm"
         }
     }
 

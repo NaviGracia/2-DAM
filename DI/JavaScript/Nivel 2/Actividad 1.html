@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    <p id="p1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum molestiae nisi rerum cumque inventore sit iusto veniam esse possimus sapiente tenetur eligendi voluptatum ratione necessitatibus iste impedit, consequatur dolore maiores.</p>
+    <p id="p2">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius tempore dolores animi impedit inventore, architecto, earum rerum, explicabo quidem delectus doloribus molestiae incidunt. Asperiores facere natus aut aliquam maiores tempora?</p>
+    <p id="p3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae magnam accusantium dolores dolorum voluptate suscipit, obcaecati cumque. Minus provident dolorem magni sint perspiciatis. Error ad commodi enim odio, id ducimus.</p>
+    <button id="changeTexts">CHANGE TEXTS</button>
+    <script>
+       document.getElementById("changeTexts").addEventListener("click", changeTexts)
+
+       function changeTexts(){
+            document.getElementById("p1").innerHTML = "Text Changed"
+            document.getElementById("p2").innerHTML = "Text Changed"
+            document.getElementById("p3").innerHTML = "Text Changed"
+        }
+    </script>
+</body>
+</html>

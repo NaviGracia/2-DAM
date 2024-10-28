@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 1</title>
+</head>
+<body>
+    <div style="background-color: aquamarine;">DIV</div>
+    <button id="changeColor">CHANGE BACKGROUND COLOR</button>
+    <script>
+        var div = document.querySelector("div")
+        var btn = document.getElementById("changeColor")
+        btn.addEventListener("click", changeColor)
+
+       function changeColor(){
+            if(div.style.backgroundColor == "aquamarine"){
+                div.style.backgroundColor = "red";
+            }else{
+                div.style.backgroundColor = "aquamarine"
+            }
+        }
+    </script>
+</body>
+</html>

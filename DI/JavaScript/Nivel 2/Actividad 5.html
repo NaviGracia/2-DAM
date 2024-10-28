@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 5</title>
+</head>
+<body>
+    <input type="text">
+    <button id="deleteElement">DELETE ELEMENT</button>
+    <ul id="lista">
+        <li>Manzana</li>
+        <li>Banana</li>
+        <li>Fresa</li>
+        <li>Uva</li>
+        <li>Naranja</li>
+    </ul>
+    <script>
+        let value = document.querySelector("input").value.trim()
+        let btn = document.getElementById("deleteElement")
+        btn.addEventListener("click", deleteElement)
+
+       function deleteElement(){
+            let items = document.querySelectorAll("#lista li");
+        
+            for(let item of items){
+                if(item.textContent === value){
+                    item.remove()
+                    break
+                }else{}
+            }
+
+        }
+    </script>
+</body>
+</html>
