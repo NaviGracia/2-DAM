@@ -1,120 +1,29 @@
 import java.util.HashMap;
 
 public class GestionPalillos {
-    static HashMap<Integer, Boolean> palillos = new HashMap<>();
+    boolean palillos[];
 
-    public synchronized boolean gestionPalillos(HashMap<Integer, String> filosofos, String nombre) throws Exception {
-        int comensal=0;
-        boolean comiendo = false;
-        for (int numFil : filosofos.keySet()) {
-            if (filosofos.get(numFil).equals(nombre)) {
-                comensal = numFil;
-            }
+    public GestionPalillos(int numPalillos){
+        palillos = new boolean[numPalillos];
+        for (int i = 0; i < numPalillos; i++) {
+            palillos[i] = true;
         }
-        switch (comensal) {
-            case 1:
-                if ((palillos.get(comensal) == false) && (palillos.get(5) == false)) {
-                    palillos.replace(comensal, true);
-                    palillos.replace(5, true);
-                    comiendo = true;
-                }else{System.out.println("Palillos Ocupados");}
-                break;
-            
-            case 2:
-                if ((palillos.get(comensal) == false) && (palillos.get(comensal-1) == false)) {
-                    palillos.replace(comensal, true);
-                    palillos.replace(comensal-1, true);
-                    comiendo = true;
-                }else{System.out.println("Palillos Ocupados");}
-                break;
-        
-            case 3:
-                if ((palillos.get(comensal) == false) && (palillos.get(comensal-1) == false)) {
-                    palillos.replace(comensal, true);
-                    palillos.replace(comensal-1, true);
-                    comiendo = true;
-                }else{System.out.println("Palillos Ocupados");}
-                break;
-
-            case 4:
-                if ((palillos.get(comensal) == false) && (palillos.get(comensal-1) == false)) {
-                    palillos.replace(comensal, true);
-                    palillos.replace(comensal-1, true);
-                    comiendo = true;
-                }else{System.out.println("Palillos Ocupados");}
-                break;
-
-            case 5:
-                if ((palillos.get(comensal) == false) && (palillos.get(1) == false)) {
-                    palillos.replace(comensal, true);
-                    palillos.replace(1, true);
-                    comiendo = true;
-                }else{System.out.println("Palillos Ocupados");}
-                break;
-        }
-        return comiendo;
     }
 
-   public synchronized boolean soltarPalillos(HashMap<Integer, String> filosofos, String nombre) throws Exception {
-        int comensal=0;
-        boolean palillosSoltados = false;
-        for (int numFil : filosofos.keySet()) {
-            if (filosofos.get(numFil).equals(nombre)) {
-                comensal = numFil;
-            }
+    public synchronized boolean cogerPalillos(int pos1, int pos2, String nombre) {
+        boolean puedeComer = false;
+        if (palillos[pos1] && palillos[pos2]) {
+            palillos[pos1] = false;
+            palillos[pos2] = false;
+            puedeComer = true;
+            System.out.println(nombre + " coge los palillos");
         }
-        switch (comensal) {
-            case 1:
-                if ((palillos.get(comensal) == true) && (palillos.get(5) == true)) {
-                    palillos.replace(comensal, false);
-                    palillos.replace(5, false);
-                    palillosSoltados = true;
-                }
-                break;
-            
-            case 2:
-                if ((palillos.get(comensal) == true) && (palillos.get(comensal-1) == true)) {
-                    palillos.replace(comensal, false);
-                    palillos.replace(comensal-1, false);
-                    palillosSoltados = true;
-                }
-                break;
-        
-            case 3:
-                if ((palillos.get(comensal) == true) && (palillos.get(comensal-1) == true)) {
-                    palillos.replace(comensal, false);
-                    palillos.replace(comensal-1, false);
-                    palillosSoltados = true;
-                }
-                break;
-
-            case 4:
-                if ((palillos.get(comensal) == true) && (palillos.get(comensal-1) == true)) {
-                    palillos.replace(comensal, false);
-                    palillos.replace(comensal-1, false);
-                    palillosSoltados = true;
-                }
-                break;
-
-            case 5:
-                if ((palillos.get(comensal) == true) && (palillos.get(1) == true)) {
-                    palillos.replace(comensal, false);
-                    palillos.replace(1, false);
-                    palillosSoltados = true;
-                }
-                break;
-        }
-        return palillosSoltados;
+        return puedeComer;
     }
 
-    
-
-    public void repartirPalillos(){
-        palillos.put(1, false);
-        palillos.put(2, false);
-        palillos.put(3, false);
-        palillos.put(4, false);
-        palillos.put(5, false);
-        System.out.println("Palillos Repartidos");
+    public synchronized void liberarPalillos(int pos1, int pos2, String nombre) {
+        palillos[pos1] = true;
+        palillos[pos2] = true;
+        System.out.println(nombre + " libera los palillos");
     }
 }

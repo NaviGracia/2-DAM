@@ -3,49 +3,52 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Filosofo implements Runnable{
-    int numFilosofo;
-    boolean comiendo;
-    static HashMap<Integer, String> filosofos = new HashMap<>();
-    GestionPalillos gp = new GestionPalillos();
+    GestionPalillos gp;
+    int palIzq, palDer;
+    String nombre;
+    int cuentaComidas;
+    boolean doYourThing;
 
-    public static void sentarFilosofo(int num, String nombre){
-        filosofos.put(num, nombre);
+    public Filosofo(GestionPalillos gp, int palIzq, int palDer, String nombre) {
+        this.gp = gp;
+        this.palIzq = palIzq;
+        this.palDer = palDer;
+        this.nombre = nombre;
+        this.cuentaComidas = 0;
+        this.doYourThing = true;
     }
-
-    public String obtenerNombreHilo(){
-        return Thread.currentThread().getName();
-    };
 
     @Override
     public void run(){
-        String miNombre = obtenerNombreHilo();
-        
-        Random generador=new Random();
-        while (true) {
-            /* Comer*/
-            // Intentar coger palillos
-            try {
-                if(gp.gestionPalillos(filosofos, miNombre)==true){
-                    System.out.println("Filosofo " + miNombre+" comiendo...");
-                    esperarTiempoAzar(miNombre, (1+generador.nextInt(5))*1000);
-                    /* Pensando...*/
-                    //Recordemos soltar los palillos
-                    if (gp.soltarPalillos(filosofos, miNombre)==true) {
-                        System.out.println("Filosofo " + miNombre+" pensando...");
-                        esperarTiempoAzar(miNombre, (1+generador.nextInt(5))*1000);
-                    }
-                }   
-            } catch (Exception e) {
-                // TODO: handle exception
+        while (doYourThing) {
+            if (this.gp.cogerPalillos(palIzq, palDer, this.nombre)) {
+                comer();
+                this.gp.liberarPalillos(palIzq, palDer, this.nombre);
+                pensar();
+            }
+            if (Thread.interrupted()) {
+                doYourThing = false;
             }
         }
     }
 
-    private void esperarTiempoAzar(String miNombre, int milisegs) {
-        try { Thread.sleep(milisegs);
+    private void comer(){
+        this.cuentaComidas++;
+        System.out.println(this.nombre + " comiendo");
+        esperarTiempoAzar();
+    }
+
+    private void pensar(){
+        System.out.println(this.nombre + " pensando");
+        esperarTiempoAzar();
+    }
+
+    private void esperarTiempoAzar() {
+        int s = new Random().nextInt(4) + 1;
+        try { 
+            Thread.sleep(s * 1000);
         } catch (InterruptedException e) {
-            System.out.println( miNombre+" interrumpido!!. Saliendo...");
-            return;
+            doYourThing = false;
         }
     }
 
