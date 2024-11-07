@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form>
+        <input type="text" name="nombre" id="text">
+    </form>
+    <br>
+    <button>VALIDATE TEXT</button>
+    <script>
+        let input = document.querySelector("input");
+        let btnValidate = document.querySelector("button");
+        btnValidate.addEventListener("click", validation);
+
+        function validation(){
+            let text = document.querySelector("input").value;
+            if (text == "") {
+                input.classList.add("vacio")
+            }else{
+                input.classList.add("rellenado")
+            }
+        }
+    </script>
+</body>
+</html>

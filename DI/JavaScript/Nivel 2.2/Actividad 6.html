@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad 6</title>
+</head>
+<body>
+    <input type="text">
+    <button id="addElement">ADD ELEMENT</button>
+    <button id="deleteElement">DELETE ELEMENT</button>
+    <ul id="lista">
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>E</li>
+        <li>F</li>
+        <li>G</li>
+    </ul>
+    <button id="count">COUNT</button>
+    <p></p>
+
+    <script>
+        let btnReload = document.getElementById("count")
+        btnReload.addEventListener("click", countElement)
+
+       function countElement(){
+            let items = document.querySelectorAll("#lista li");
+            let counter = document.querySelector("p");
+            var count = 0;
+            for(var i = 0; i < items.length; i++){
+                count+=1;
+            }
+            counter.innerHTML = count;
+        }
+
+        var it = document.querySelector("input")
+        var btnAdd = document.getElementById("addElement")
+        btnAdd.addEventListener("click", addElement)
+
+       function addElement(){
+            let ul = document.querySelector("ul");
+        
+            let newLI = document.createElement("li")
+            newLI.innerHTML = it.value;
+            ul.appendChild(newLI);
+        
+        }
+
+        let value = document.querySelector("input").value.trim()
+        let btnRemove = document.getElementById("deleteElement")
+        btnRemove.addEventListener("click", deleteElement)
+
+       function deleteElement(){
+            let items = document.querySelectorAll("#lista li");
+        
+            for(let item of items){
+                if(item.textContent === value){
+                    item.remove()
+                    break
+                }else{}
+            }
+
+        }
+    </script>
+</body>
+</html>
