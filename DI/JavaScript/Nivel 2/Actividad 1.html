@@ -14,9 +14,11 @@
        document.getElementById("changeTexts").addEventListener("click", changeTexts)
 
        function changeTexts(){
-            document.getElementById("p1").innerHTML = "Text Changed"
-            document.getElementById("p2").innerHTML = "Text Changed"
-            document.getElementById("p3").innerHTML = "Text Changed"
+            var pse = document.querySelectorAll("p");
+            for (let index = 0; index < pse.length; index++) {
+                pse[index].innerHTML = "TEXT CHANGED";
+                
+            }   
         }
     </script>
 </body>

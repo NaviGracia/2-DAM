@@ -5,6 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ImcResultActivity">
+    tools:context=".ImcResultActivity"
+    android:background="@color/bg_app">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tu resultado"
+        android:textSize="40dp"
+        android:textColor="@color/white"
+        android:layout_marginTop="50dp"
 
 </androidx.constraintlayout.widget.ConstraintLayout>
