@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema: Puntuación Dinámico</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>Throne and Liberty
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        <li>Rocket League
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        <li>CoD: Black Ops 6
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        <li>Metaphor ReFantazio
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        <li>MH: Wilds
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></li>
+        <li>Horizon: Forbidden West
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        <li>Baldurs Gate 3
+            <p>Puntuación: 0</p>
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </li>
+        
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $("span").click(function(){
+                $(this).prevAll("span").addBack().css("color", "gold")
+                    .text("★");
+                $(this).nextAll().css("color", "black")
+                    .text("☆");
+                $(this).siblings("p").text("Puntuación: " + $(this).index());
+            });
+            
+        });
+    </script>
+</body>
+</html>
+<!-- - Crea una lista de elementos (por ejemplo, películas o canciones) y un sistema 
+ de puntuación con estrellas. Al hacer clic en una estrella, el sistema debe cambiar 
+ la puntuación y guardar el valor en cada elemento.
+
+   - Objetivo: Trabajar con eventos de clic y manipulación del DOM para actualizar 
+   la interfaz en tiempo real.-->

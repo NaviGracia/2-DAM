@@ -81,7 +81,10 @@ class ImcCalculatorActivity : AppCompatActivity() {
             setWeight()
         }
 
-        btnCal.setOnClickListener {  }
+        btnCal.setOnClickListener {
+            val intentIMCResult = Intent(this, ImcResultActivity::class.java)
+            intentIMCResult.putExtra("EXTRA_NAME", name)
+        }
     }
 
     private fun setGenderColor(){

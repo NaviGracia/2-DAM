@@ -1,13 +1,13 @@
-package com.ivan.springboot.webapp.demo;
+package com.ivan.springboot.webapp.springboot_web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class SpringbootWebApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(SpringbootWebApplication.class, args);
 	}
 
 }
