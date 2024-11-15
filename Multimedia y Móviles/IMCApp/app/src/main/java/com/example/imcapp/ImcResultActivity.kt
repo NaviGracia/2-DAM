@@ -1,5 +1,6 @@
 package com.example.imcapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
@@ -24,14 +25,27 @@ class ImcResultActivity : AppCompatActivity() {
     public fun initListeners(){
         btnReCal.setOnClickListener {
             val intentIMCMain = Intent(this, ImcCalculatorActivity::class.java)
-            intentIMCMain.putExtra("EXTRA_NAME", name)
         }
     }
 
-    public fun initUI(){}
+    public fun initUI(){
+        setTextResult()
+    }
 
+    private fun setTextResult(){
+        val imc:Double = intent.extras?.getDouble("Imc")!!
+        when(imc){
+            in 0.0..18.5 -> textRs.text = "Peso inferior al normal"
+            in 18.5..24.9 -> textRs.text = "Peso inferior al normal"
+            in 25.0..29.9 -> textRs.text = "Peso inferior al normal"
+            else -> "Obesidad"
+        }
+    }
 
-
+    private fun setImcResult(){
+        val imc:Double = intent.extras?.getDouble("Imc")!!
+        imcNumber.text = imc.toString()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

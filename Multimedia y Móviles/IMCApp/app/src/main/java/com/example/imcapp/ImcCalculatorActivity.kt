@@ -1,5 +1,6 @@
 package com.example.imcapp
 
+import android.content.Intent
 import android.icu.text.DecimalFormat
 import android.os.Bundle
 import android.widget.Button
@@ -82,8 +83,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
         }
 
         btnCal.setOnClickListener {
-            val intentIMCResult = Intent(this, ImcResultActivity::class.java)
-            intentIMCResult.putExtra("EXTRA_NAME", name)
+            navigate2result(calculateIMC())
         }
     }
 
@@ -106,7 +106,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     }
 
     private fun setWeight(){
-        tvWeight.text = weight.toString() + " kg"
+        tvWeight.text = weight.toString()
     }
 
     private fun setAge(){
@@ -119,7 +119,8 @@ class ImcCalculatorActivity : AppCompatActivity() {
     }
 
     private fun navigate2result(num:Double){
-
+        val intentGA = Intent(this, ImcResultActivity::class.java)
+        intentGA.putExtra("Imc", num)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

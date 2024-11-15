@@ -13,4 +13,7 @@
     <color name="bg_app">#0E0B20</color>
     <color name="bg_button">#EB1555</color>
     <color name="title_text">#FF8D8E98</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FFA500</color>
+    <color name="green">#008000</color>
 </resources>
