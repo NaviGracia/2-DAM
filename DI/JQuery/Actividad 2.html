@@ -5,18 +5,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador: Carrito de Compras</title>
     <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        table{
+            border: 1px solid black;
+        }
+
+        th{
+            border-bottom: 1px solid black;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
-    <ul>
-        <header>Productos</header>
-        <li>Ragavan, Nimble Pimferer</li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul>
-    <ul>
-        <header>Carrito du Compra</header>
-    </ul>
+    <h1>Productos Magic: The Gathering</h1>
+    <table id="productos">
+        <tr>
+            <th>Precio</th>
+            <th>Producto</th>
+        </tr>
+        <tr>
+            <th><span>23</span>€</th>
+            <th>Ragavan, Nimble Pimferer</th>
+            <th><button>Añadir</button></th>
+        </tr>
+        <tr>
+            <th><span>22.50</span>€</th>
+            <th>Bloodthirsty Conqueror</th>
+            <th><button>Añadir</button></th>
+        </tr>
+        <tr>
+            <th><span>0.02</span>€</th>
+            <th>Alzamiento de Garruk</th>
+            <th><button>Añadir</button></th>
+        </tr>
+        <tr>
+            <th><span>22.50</span>€</th>
+            <th>Urza's Saga</th>
+            <th><button>Añadir</button></th>
+        </tr>
+        <tr>
+            <th><span>4</span>€</th>
+            <th>Ozolith, the Shattered Spire</th>
+            <th><button>Añadir</button></th>
+        </tr>
+    </table>
+        <h2>Carrito du Compra</h2>
+        <table id="carrito">
+            <tr>
+                <th>Precio</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+            </tr>
+        </table>
+        <br>
+        <p>Total = <span id="numTotal">0</span>€</p>
+    <script>
+        $(document).ready(function(){
+            $("#productos").find("button").click(function(){
+                let precio = parseFloat($(this).parent().siblings().first().find("span")
+                    .text());
+                let producto = $(this).parent().siblings().eq(1).text();
+                let creado = false;
+                let indice = 0;
+                for (let index = 1; index < $("#carrito tr").length; index++) {
+                    let productoActual = $("#carrito tr").eq(index)
+                        .find("th").eq(1).text();
+                    if (producto == productoActual) {
+                        creado = true;
+                        indice = index;
+                    }
+                }
+                if (creado == true) {
+                    let ct = parseInt($("#carrito tr").eq(indice).find("th").eq(2).text()) + 1;
+                    $("#carrito tr").eq(indice).find("th").eq(2).text(ct);
+                }else{
+                    //Creamos producto en carrito
+                    let thprecio = "<th><span>" + precio + "</span>€</th>";
+                    let thproducto = "<th>" + producto + "</th>";
+                    $("#carrito").append("<tr></tr>")
+                        .find("tr").last().append(thprecio, thproducto, "<th>1</th>", "<th><button class='qt'>Quitar</button></th>");
+                }
+                //Modificación del total del carrito
+                let total = parseFloat($("#numTotal").text());
+                let numTotal = total + precio;
+                $("#numTotal").text(numTotal);
+
+                $("#carrito").find("button").click(function(){
+                    let ct = parseInt($(this).parentsUntil("tr").parent().find("th").eq(2).text()) -1;
+                    console.log("obtiene cantidad");
+                    if (ct == 0) {
+                        $(this).parentsUntil("tr").parent().remove();
+                        console.log("elimina pr");
+                    }else{
+                        $(this).parentsUntil("tr").parent().find("th").eq(2).text(ct);
+                        console.log("quita cantidad");
+                    }
+                })
+            });
+        })
+    </script>
 </body>
 </html>
