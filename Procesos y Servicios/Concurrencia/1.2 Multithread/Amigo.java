@@ -1,3 +1,6 @@
+
+
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Random;
@@ -16,7 +19,8 @@ public class Amigo implements Runnable{
     @Override
     public void run(){
         Random random = new Random();
-        
+        while (true) {
+            
         // Generar un número aleatorio entre 1, 2 y 3
         int numero = random.nextInt(3) + 1;
 
@@ -39,6 +43,7 @@ public class Amigo implements Runnable{
             e.printStackTrace();
         }
         System.out.println(nombre + ": " + jugada);
+        }
         
     }
 

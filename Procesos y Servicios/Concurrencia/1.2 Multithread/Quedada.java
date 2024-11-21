@@ -1,7 +1,10 @@
+
+
+
 import java.util.concurrent.CyclicBarrier;
 
 public class Quedada {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         int nAmigos=3;
         String nombres[] = new String[nAmigos];
         iniciarNombres(nombres);

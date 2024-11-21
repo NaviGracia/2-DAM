@@ -24,27 +24,27 @@
             <th>Producto</th>
         </tr>
         <tr>
-            <th><span>23</span>€</th>
+            <th>23<span>€</span></th>
             <th>Ragavan, Nimble Pimferer</th>
             <th><button>Añadir</button></th>
         </tr>
         <tr>
-            <th><span>22.50</span>€</th>
+            <th>22.50<span>€</span></th>
             <th>Bloodthirsty Conqueror</th>
             <th><button>Añadir</button></th>
         </tr>
         <tr>
-            <th><span>0.02</span>€</th>
+            <th>0.02<span>€</span></th>
             <th>Alzamiento de Garruk</th>
             <th><button>Añadir</button></th>
         </tr>
         <tr>
-            <th><span>22.50</span>€</th>
+            <th>22.50<span>€</span></th>
             <th>Urza's Saga</th>
             <th><button>Añadir</button></th>
         </tr>
         <tr>
-            <th><span>4</span>€</th>
+            <th>4<span>€</span></th>
             <th>Ozolith, the Shattered Spire</th>
             <th><button>Añadir</button></th>
         </tr>
@@ -62,7 +62,7 @@
     <script>
         $(document).ready(function(){
             $("#productos").find("button").click(function(){
-                let precio = parseFloat($(this).parent().siblings().first().find("span")
+                let precio = parseFloat($(this).parent().siblings().first()
                     .text());
                 let producto = $(this).parent().siblings().eq(1).text();
                 let creado = false;
@@ -76,32 +76,39 @@
                     }
                 }
                 if (creado == true) {
-                    let ct = parseInt($("#carrito tr").eq(indice).find("th").eq(2).text()) + 1;
-                    $("#carrito tr").eq(indice).find("th").eq(2).text(ct);
+                    let cant = parseInt($("#carrito tr").eq(indice).find("th").eq(2).text()) + 1;
+                    $("#carrito tr").eq(indice).find("th").eq(2).text(cant);
                 }else{
                     //Creamos producto en carrito
-                    let thprecio = "<th><span>" + precio + "</span>€</th>";
+                    let thprecio = "<th>" + precio + "<span>€</span></th>";
                     let thproducto = "<th>" + producto + "</th>";
                     $("#carrito").append("<tr></tr>")
-                        .find("tr").last().append(thprecio, thproducto, "<th>1</th>", "<th><button class='qt'>Quitar</button></th>");
+                        .find("tr").last().append(thprecio, thproducto, "<th class='ct'>1</th>", "<th><button>Quitar</button></th>");
                 }
                 //Modificación del total del carrito
                 let total = parseFloat($("#numTotal").text());
                 let numTotal = total + precio;
                 $("#numTotal").text(numTotal);
-
-                $("#carrito").find("button").click(function(){
-                    let ct = parseInt($(this).parentsUntil("tr").parent().find("th").eq(2).text()) -1;
-                    console.log("obtiene cantidad");
-                    if (ct == 0) {
-                        $(this).parentsUntil("tr").parent().remove();
-                        console.log("elimina pr");
-                    }else{
-                        $(this).parentsUntil("tr").parent().find("th").eq(2).text(ct);
-                        console.log("quita cantidad");
-                    }
-                })
             });
+
+            //Botón de quitar
+            $("#carrito").on("click", "button", function(){
+                let ct = parseInt($(this).parent().siblings(".ct").text()) - 1;
+                console.log(ct)
+                if (ct == 0) {
+                    $(this).parentsUntil("tr").parent().remove();
+                    console.log("elimina pr");
+                }else{
+                    $(this).parent().siblings(".ct").text(ct)
+                    console.log("quita cantidad");
+                }
+                //Modificación del total del carrito
+                let precio = parseFloat($(this).parent().siblings().first()
+                    .text());
+                let total = parseFloat($("#numTotal").text());
+                let numTotal = total - precio;
+                $("#numTotal").text(numTotal);
+            })
         })
     </script>
 </body>
