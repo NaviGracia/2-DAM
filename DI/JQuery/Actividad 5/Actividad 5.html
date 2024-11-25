@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Imágenes</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        div{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img number="1" src="img/1.jpeg" alt="">
+        <br>
+        <button id="prev">Anterior</button>
+        <button id="next">Siguiente</button>
+    </div>
+    <script>
+        $(document).ready(function(){    
+            setInterval(changeImage, 5000); 
+            $("#prev").click(function (){
+                changeImage(true);
+            })
+            $("#next").click(function(){
+                changeImage();
+            })
+        })
+
+        function changeImage(retroceder) {
+            let img = $("img");
+            let imgNumber;
+            if (retroceder == true) {
+                imgNumber = parseInt($("img").attr("number"))-1;
+            }else{
+                imgNumber = parseInt($("img").attr("number"))+1;
+            }
+            console.log(imgNumber);
+            let newImg;
+            img.fadeToggle("slow", function(){
+                if(imgNumber == 5){
+                    console.log("comprobando imagen");
+                    newImg = "img/1.jpeg";
+                    imgNumber = 1;
+                }if(imgNumber == 0){
+                    newImg = "img/4.jpeg";
+                    imgNumber = 4;
+                }else{
+                    console.log("Cambiando imagen")
+                    newImg = "img/" + imgNumber + ".jpeg";
+                }
+                img.attr("number", imgNumber);
+                img.attr("src", newImg);
+                img.fadeToggle("slow");
+                console.log("imagen cambiada");
+            })
+        }
+    </script>
+</body>
+</html>

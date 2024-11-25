@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca Frases</title>
+    <script src="jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <h1>Habilidades Magic: The Gathering</h1>
+    <input type="text">
+    <ul>
+        <li>Antimaleficio: Esta criatura no puede ser objetivo de hechizos o habilidades que controlen tus oponentes.</li>
+        <li>Prisa: Puede atacar y girarse incluso si acaba de entrar bajo tu control.</li>
+        <li>Reclutar: Cuando ataque, puedes girar una criatura sin mareo que no ataque. Si lo haces, añade su fuerza a la de esta criatura hasta el final del turno.</li>
+        <li>Amenaza: No puede ser bloqueada excepto por dos o más criaturas. </li>
+        <li>Destello: Puedes lanzar esta criatura como si fuera un instantáneo.</li>
+        <li>Vuela: Solo puede ser bloqueada por criaturas con alcance o volar.</li>
+        <li>Daña Primero: Esta criatura hace daño de combate antes que las criaturas sin la habilidad de dañar primero.</li>
+        <li>Protección contra Blanco: Esta criatura no puede ser bloqueada, hecha objetivo, recibir daño de o estar encantada por nada blanco.</li>
+        <li>Arrolla: Si esta criatura fuera a asignar suficiente daño a sus bloqueadores como para destruirlo, puedes hacer que le asigne el resto del daño al jugador o planeswalker defensor.</li>
+        <li>Alcance: Esta criatura puede bloquear a criaturas con la habilidad de volar.</li>
+    </ul>
+    <script>
+        $(document).ready(function(){
+            $("input").on("keyup", function(){
+                var value = $(this).val();
+                $("ul li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            })
+        })
+    </script>
+</body>
+</html>

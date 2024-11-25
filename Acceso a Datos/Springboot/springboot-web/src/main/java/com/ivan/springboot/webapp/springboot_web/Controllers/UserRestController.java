@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ivan.springboot.webapp.springboot_web.models.User;
+import com.ivan.springboot.webapp.springboot_web.models.UserDTO;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 @Controller
 public class UserRestController {
 
@@ -39,4 +45,12 @@ public class UserRestController {
 
       return body;
     }
+
+    @GetMapping("llamadaDTO")
+    public String userDTO() {
+        User user = new User("Ajani", "White");
+        UserDTO userDto = new UserDTO("Planeswalkers", user)
+        userDto = 
+    }
+    
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Notificaciones</title>
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+        body{
+            text-align: center;
+        }
+        p{  
+            margin: 0 auto;
+            color: brown;
+            width: fit-content;
+            background-color: azure;
+            border: 1px solid aquamarine;
+            
+        }
+    </style>
+</head>
+<body>
+    <p></p>
+    <br>
+    <button id="reproductor_notificaciones">Reproducir Notificación</button>
+    <script>
+        $(document).ready(function(){
+            let horas = Math.floor(Math.random()*24);
+            let minutos = Math.floor(Math.random()*60);
+            let segundos = Math.floor(Math.random()*60);
+            $("p").html("Salida del Set de Foundations: <br>" + horas + " horas, " + minutos + " minutos y " + segundos + " segundos.")
+                .hide();
+            $("#reproductor_notificaciones").click(function(){
+                let notif = $("p");
+                notif.fadeIn("slow");
+                let miliseconds = Math.floor(Math.random()*5000);
+                notif.delay(miliseconds).fadeOut("slow");
+            })
+        })
+    </script>
+</body>
+</html>
