@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JetpackTest</string>
+    <string name="title_activity_estados">Estados_Activity</string>
 </resources>

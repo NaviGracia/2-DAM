@@ -1,0 +1,26 @@
+body{
+    background-color: snow;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.bienvenida{
+    margin: 10px;
+    display: inline-block;
+    background-color: slategrey;
+}
+
+.bienvenida img{
+    margin: 5px;
+    float: left;
+}
+
+.bienvenida h2{
+    color: snow;
+}
+
+.bienvenida p{
+    text-align: justify;
+    color: snow;
+    font-size: 18px;
+}
+

@@ -43,6 +43,7 @@ class ImcResultActivity : AppCompatActivity() {
     }
 
     private fun setImcResult(){
+
         val imc:Double = intent.extras?.getDouble("Imc")!!
         imcNumber.text = imc.toString()
     }

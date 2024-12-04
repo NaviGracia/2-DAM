@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CharApp</string>
+    <string name="name">Name: </string>
+    <string name="char_name">Character Name</string>
+    <string name="yuanti">Yuanti</string>
+    <string name="orc">Orc</string>
+    <string name="tiefling">Tiefling</string>
+    <string name="power">Power: </string>
+    <string name="fifthy"> 50</string>
+    <string name="power_desc">power</string>
 </resources>

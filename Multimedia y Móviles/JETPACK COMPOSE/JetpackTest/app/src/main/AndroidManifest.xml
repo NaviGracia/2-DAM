@@ -13,6 +13,14 @@
         android:theme="@style/Theme.JetpackTest"
         tools:targetApi="31">
         <activity
+            android:name=".Estados_Activity"
+            android:exported="false"
+            android:label="@string/title_activity_estados"
+            android:theme="@style/Theme.JetpackTest" />
+        <activity
+            android:name=".Estados"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"

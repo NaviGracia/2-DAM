@@ -7,23 +7,25 @@ import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
+import com.ivan.springboot.webapp.springboot_web.Controllers.dto.UserDTO;
 import com.ivan.springboot.webapp.springboot_web.models.User;
-import com.ivan.springboot.webapp.springboot_web.models.UserDTO;
-
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
-@Controller
+
+@RestController
+@RequestMapping("/api")
 public class UserRestController {
 
     @GetMapping("/detailsThreeUsers")
-    @RequestMapping("/api")
     public List<Map<String, Object>> muestra(){
-      List<Map<String, Object>> body = new ArrayList<>();
+      List<Map<String, Object>> usuarios = new ArrayList<>();
       Map<String, Object> user1 = new HashMap<>();
       user1.put("title", "Hola Mundo");
       user1.put("name", "Ivan");
@@ -39,18 +41,36 @@ public class UserRestController {
       user3.put("name", "Jinx");
       user3.put("surname", "Jayce");
 
-      body.add(user1);
-      body.add(user2);
-      body.add(user3);
+      usuarios.add(user1);
+      usuarios.add(user2);
+      usuarios.add(user3);
 
-      return body;
+      return usuarios;
     }
 
-    @GetMapping("llamadaDTO")
-    public String userDTO() {
+    @GetMapping("/llamadaDTO")
+    public UserDTO userDTO() {
         User user = new User("Ajani", "White");
-        UserDTO userDto = new UserDTO("Planeswalkers", user)
-        userDto = 
+        UserDTO userDTO = new UserDTO();
+        userDTO.setTitle("Planeswalkers");
+        userDTO.setName(user.getName());
+        userDTO.setLastname(user.getLastname());
+
+        return userDTO;
+    }
+
+    @GetMapping("/dtoParamsPath/{name}/{lastname}")
+    public UserDTO DtoParamsPath(@PathVariable String name, @PathVariable String lastname) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setName(name);
+        userDTO.setLastname(lastname);
+        return userDTO;
+    }
+    
+    @PostMapping("/crearUsuario")
+    public UserDTO crearUsuario(@RequestBody UserDTO userDto) {
+        userDto.setName(userDto.getName().toUpperCase());
+        return userDto;
     }
     
 }

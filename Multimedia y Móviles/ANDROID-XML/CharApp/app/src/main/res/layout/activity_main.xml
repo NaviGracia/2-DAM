@@ -1,19 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@color/appBk"
+    android:padding="24dp">
+    
+    <LinearLayout
+        android:id="@+id/viewApp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical">
 
-    <TextView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/title"
+            android:text="@string/app_name"
+            android:textSize="50sp"
+            android:textAlignment="center"
+            android:background="@color/noSelected"/>
+        
+        <!--Name of Character-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text"
+                android:text="@string/name"
+                android:textSize="30sp"
+                android:textAlignment="center"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"/>
+    
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:inputType="text"
+                android:textColor="@color/text"
+                android:textSize="30sp"
+                android:hint="@string/char_name"
+                android:autofillHints="name"
+                android:textColorHint="@color/text"
+                android:textAlignment="center"
+                android:background="@color/noSelected"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="50dp"
+                android:layout_marginStart="10dp"/>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--Yuanti-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/slYuanti"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                app:cardBackgroundColor="@color/noSelected"
+                app:cardCornerRadius="30dp">
+
+                <ImageView
+                    android:id="@+id/imgYuanti"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/yuanti"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/yuanti"/>
+            </androidx.cardview.widget.CardView>
+
+            <!--Orc-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/slOrc"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                app:cardBackgroundColor="@color/noSelected"
+                app:cardCornerRadius="30dp"
+                android:layout_marginStart="8dp">
+
+                <ImageView
+                    android:id="@+id/imgOrc"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/orc"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/orc"/>
+            </androidx.cardview.widget.CardView>
+
+            <!--Tiefling-->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/slTiefling"
+                android:layout_width="115dp"
+                android:layout_height="115dp"
+                app:cardBackgroundColor="@color/noSelected"
+                app:cardCornerRadius="30dp"
+                android:layout_marginStart="8dp">
+
+                <ImageView
+                    android:id="@+id/imgTiefling"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/tiefling"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:contentDescription="@string/tiefling"/>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+        <!--Power-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="100dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/power"
+                    android:textColor="@color/text"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/tvPower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fifthy"
+                    android:textColor="@color/text"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/rsPower"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/power_desc"
+                android:stepSize="5"
+                android:valueFrom="0"
+                android:valueTo="100"
+                android:value="50"/>
+        </LinearLayout>
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintRight_toRightOf="parent"
+        android:backgroundTint="@color/fabBk"
+        android:src="@android:drawable/ic_menu_add"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
