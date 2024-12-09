@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     
-                    <div id="ajani_mh3" class="card" style="width: 200px;">
+                    <div id="ajani_mh3"  class="card ajani-mh3" style="width: 200px;">
                         <!-- Contenedor de imágenes con efecto flip -->
                         <div class="card-inner">
                             <!-- Imagen frontal -->
@@ -88,6 +88,7 @@
                         </div>
                         
                         <div class="card-body">
+                            <button class="girar-imagen">Girar Imagen</button>
                             <h4 class="card-title flip-card-text">Modern Horizons 3</h4>
                             <h4 class="card-title">2024</h4>
                             <button data-bs-toggle="modal" data-bs-target="#image-modal" 
@@ -105,6 +106,26 @@
                         </div>
                     </div>
 
+                    <div id="ajani_core_set_2020" class="card" style="width: 200px;">
+                        <img src="img/Ajani, Mentor of Heroes.jpg" alt="Ajani, Mentor of Heroes" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">Secret Lair</h4>
+                            <h4 class="card-title">2022</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani, Mentor of Heroes.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+
+                    <div id="ajani_new_capenna" class="card" style="width: 200px;">
+                        <img src="img/Ajani Unyielding.jpg" alt="Ajani Unyielding" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">Secret Lair</h4>
+                            <h4 class="card-title">2022</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani Unyielding.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+
                     <div id="ajani_war_of_the_spark" class="card" style="width: 200px;">
                         <img src="img/Ajani, the Greathearted.jpg" alt="Ajani, the Greathearted" class="card-img-top" style="width: 100%;">
                         <div class="card-body">
@@ -114,6 +135,17 @@
                                 onclick="showImage('img/Ajani, the Greathearted.jpg')">Ampliar</button>
                         </div>
                     </div>
+
+                    <div id="ajani_core_set_2020" class="card" style="width: 200px;">
+                        <img src="img/Ajani, Strength of the Pride.jpg" alt="Ajani, Strength of the Pride" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">Core Set 2020</h4>
+                            <h4 class="card-title">2019</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani, Strength of the Pride.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+                    
                     
                 </div>
             </div>
@@ -135,16 +167,16 @@
             </div>
         </main>
         <footer>
-            <!-- place footer here -->
+            <audio controls "autoplay"> 
+                <source src="mp3/naturaleza-para-relajarse-4-.mp3" type="audio/mpeg">
+                Tu navegador no soporta el elemento audio
+            </audio>
         </footer>
         <!--Javascript-->
         <script>
             const parent_div = document.getElementById("ajani_mh3"); 
             var div = document.querySelector(".card-inner");
-            var img = document.querySelector(".avg");
-
-            parent_div.addEventListener('click', rotarImagen);
-            img.addEventListener("click", rotarImagen);
+            document.querySelector(".girar-imagen").addEventListener("click", rotarImagen);
 
             function rotarImagen(){
                 if(parent_div.id == "ajani_mh3"){
@@ -162,13 +194,19 @@
 
             function getFlipImage() {
                 // Seleccionar el contenedor de la tarjeta "ajani_mh3"
-                const ajaniCard = document.getElementById('ajani_mh3');
+                const ajaniCard = document.querySelector('.ajani-mh3');
+                const cardInner = document.querySelector('.card-inner');
 
-                // Verificar el estado de transform de la tarjeta
-                const cardInner = ajaniCard.querySelector('.card-inner');
+                // Obtener la matriz de transformación aplicada
+                const transformMatrix = window.getComputedStyle(cardInner).transform;
 
-                // Obtenemos el valor de transform aplicado
-                const isFlipped = window.getComputedStyle(cardInner).transform !== 'none';
+                // Analizar si es `rotateY(180deg)` o `rotateY(0deg)`
+                let isFlipped = false;
+                if (transformMatrix !== 'none') {
+                    const values = transformMatrix.split('(')[1].split(')')[0].split(',');
+                    const cosValue = parseFloat(values[0]); // Valor de cos(ángulo) en la matriz
+                    isFlipped = cosValue < 0; // Si cos(180°) = -1, está volteado
+                }
 
                 // Seleccionar las imágenes frontal y trasera
                 const frontImage = ajaniCard.querySelector('.card-front img');
@@ -181,6 +219,7 @@
                     return frontImage.src; // La frontal está visible
                 }
             }
+
 
         </script>
         <!-- Bootstrap JavaScript Libraries -->
