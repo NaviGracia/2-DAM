@@ -16,6 +16,7 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
             crossorigin="anonymous"
         />
+        <link rel="stylesheet" href="galeria_img.css">
     </head>
 
     <body>
@@ -47,7 +48,57 @@
                 </div>
             </nav>
         </header>
-        <main></main>
+        <main>
+            <div class="container mt-3">
+                <!-- Carousel -->
+                <div id="demo" class="carousel slide mx-auto" data-bs-ride="carousel">
+
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
+                    </div>
+                
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/Ajani Goldmane.jpeg" alt="Ajani Goldmane" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, Nacatl Pariah.png" alt="Ajani, Nacatl Pariah" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, Nacatl Avenger.png" alt="Ajani, Nacatl Avenger" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, Caller of the Pride.jpg" alt="Ajani, Nacatl Avenger" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, the Greathearted.jpg" alt="Ajani, the Greathearted" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, Strength of the Pride.jpg" alt="Ajani, Strength of the Pride" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/Ajani, Sleeper Agent.jpg" alt="Ajani, Sleeper Agent" class="d-block w-100">
+                        </div>
+                    </div>
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev control" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next control" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </main>
         <footer>
             <!-- place footer here -->
         </footer>

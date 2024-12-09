@@ -1,0 +1,17 @@
+body{
+    background-color: snow;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.carousel-indicators{
+    background-color: slategrey;
+    border-radius: 30%;
+}
+
+.slide{
+    width: 300px;
+}
+
+span{
+    background-color: slategrey;
+}

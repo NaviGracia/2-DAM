@@ -52,14 +52,25 @@
             </nav>
         </header>
         <main>
-            <div class="container mt-3">
+            <div class="container mt-3 main">
                 <h2>Colección Ajani</h2>
                 <div class="row">
                     <div id="ajani_foundations" class="card" style="width: 200px;">
-                        <img class="card-img-top" style="width: 100%;" src="img/Ajani, Caller of the Pride.jpg" alt="Ajani, Caller of the Pride">
+                        <img src="img/Ajani, Caller of the Pride.jpg" alt="Ajani, Caller of the Pride" class="card-img-top" style="width: 100%;">
                         <div class="card-body">
                             <h4 class="card-title">Foundations</h4>
                             <h4 class="card-title">2024</h4>
+                            <button  data-bs-toggle="modal" data-bs-target="#image-modal" onclick="showImage('img/Ajani, Caller of the Pride.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+
+                    <div id="ajani_foundatios_jumpstart" class="card" style="width: 200px;">
+                        <img src="img/Ajani, Adversary of Tyrants.jpg" alt="Ajani, Adversary of Tyrants" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">Foundations Jumpstart</h4>
+                            <h4 class="card-title">2022</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani, Adversary of Tyrants.jpg')">Ampliar</button>
                         </div>
                     </div>
                     
@@ -67,28 +78,111 @@
                         <!-- Contenedor de imágenes con efecto flip -->
                         <div class="card-inner">
                             <!-- Imagen frontal -->
-                            <div class="card-front">
+                            <div class="card-front" >
                                 <img src="img/Ajani, Nacatl Pariah.png" class="card-img" alt="Front Image">
                             </div>
                             <!-- Imagen trasera -->
                             <div class="card-back">
-                                <img src="img/Ajani, Nacatl Avenger.png" class="card-img" alt="Back Image">
+                                <img src="img/Ajani, Nacatl Avenger.png" class="card-img avg" alt="Back Image">
                             </div>
                         </div>
-                        <!-- Footer con texto -->
+                        
                         <div class="card-body">
                             <h4 class="card-title flip-card-text">Modern Horizons 3</h4>
                             <h4 class="card-title">2024</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage(getFlipImage())">Ampliar</button>
                         </div>
                     </div>
+
+                    <div id="ajani_dominaria_united" class="card" style="width: 200px;">
+                        <img src="img/Ajani, Sleeper Agent.jpg" alt="Ajani, Sleeper Agent" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">Dominaria United</h4>
+                            <h4 class="card-title">2022</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani, Sleeper Agent.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+
+                    <div id="ajani_war_of_the_spark" class="card" style="width: 200px;">
+                        <img src="img/Ajani, the Greathearted.jpg" alt="Ajani, the Greathearted" class="card-img-top" style="width: 100%;">
+                        <div class="card-body">
+                            <h4 class="card-title">War of the Spark</h4>
+                            <h4 class="card-title">2019</h4>
+                            <button data-bs-toggle="modal" data-bs-target="#image-modal" 
+                                onclick="showImage('img/Ajani, the Greathearted.jpg')">Ampliar</button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
 
-            
+            <!-- Modal -->
+            <div class="modal fade" id="image-modal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title text-dark" id="image-modal-label">Vista ampliada</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                    <!-- Imagen ampliada -->
+                    <img id="modal-image" src="" class="img-fluid" alt="Imagen ampliada">
+                    </div>
+                </div>
+                </div>
+            </div>
         </main>
         <footer>
             <!-- place footer here -->
         </footer>
+        <!--Javascript-->
+        <script>
+            const parent_div = document.getElementById("ajani_mh3"); 
+            var div = document.querySelector(".card-inner");
+            var img = document.querySelector(".avg");
+
+            parent_div.addEventListener('click', rotarImagen);
+            img.addEventListener("click", rotarImagen);
+
+            function rotarImagen(){
+                if(parent_div.id == "ajani_mh3"){
+                    div.style.transform = 'rotateY(180deg)';
+                    parent_div.id = "ajani_mh3_flipped";
+                }else{
+                    div.style.transform = 'rotateY(0deg)';
+                    parent_div.id = "ajani_mh3";
+                }
+            }
+            // Función para mostrar la imagen en el modal
+            function showImage(src) {
+                document.getElementById('modal-image').src = src;
+            }
+
+            function getFlipImage() {
+                // Seleccionar el contenedor de la tarjeta "ajani_mh3"
+                const ajaniCard = document.getElementById('ajani_mh3');
+
+                // Verificar el estado de transform de la tarjeta
+                const cardInner = ajaniCard.querySelector('.card-inner');
+
+                // Obtenemos el valor de transform aplicado
+                const isFlipped = window.getComputedStyle(cardInner).transform !== 'none';
+
+                // Seleccionar las imágenes frontal y trasera
+                const frontImage = ajaniCard.querySelector('.card-front img');
+                const backImage = ajaniCard.querySelector('.card-back img');
+
+                // Determinar qué imagen mostrar
+                if (isFlipped) {
+                    return backImage.src; // La trasera está visible
+                } else {
+                    return frontImage.src; // La frontal está visible
+                }
+            }
+
+        </script>
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
