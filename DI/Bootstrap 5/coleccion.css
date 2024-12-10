@@ -67,3 +67,14 @@ button{
 .img-fluid{
   border-radius: 10px;
 }
+
+.girar-imagen{
+  position: relative;
+  bottom: 35px;
+  border-radius: 50%;
+}
+
+#ajani_mh3 .card-body{
+  position: relative;
+  bottom: 30px;
+}
