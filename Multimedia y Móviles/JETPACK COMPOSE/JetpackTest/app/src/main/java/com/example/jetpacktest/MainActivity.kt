@@ -15,6 +15,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.em
 import com.example.jetpacktest.ui.theme.JetpackTestTheme
+import androidx.navigation.*
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,11 +26,33 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             JetpackTestTheme {
+                val navigationController = rememberNavController()
+                NavHost(navController = navigationController,
+                    startDestination = Routes.MainScreen.route){
+                    composable(Routes.MainScreen.route) { MainScreen(navigationController) }
+                    /*
+                    composable(
+                        Screen4(navigationController, it.arguments?.getString("name").orEmpty())
+                    composable(
+                        Routes.Screen5.route,
+                        arguments = listOf(navArgument("age"){defaultValue = 25})
+                    ) {
+                        Routes.Screen5(
+                            navigationController,
+                            it.arguments?.getInt("age").orEmpty()
+                        )
+                        }*/
+                }
                 MyFirstApp()
             }
         }
     }
 }
+
+/*
+var sliderPosition by rememberSaveable { mutableStateOf(0f) }
+var openAlert by rememberSaveable { mutableStateOf(0f) }
+*/
 
 //FirstApp
 @Preview(showBackground = true)

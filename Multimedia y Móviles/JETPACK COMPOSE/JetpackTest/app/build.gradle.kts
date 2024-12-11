@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.navigation:navigation-compose:2.5.0")
     implementation("androidx.compose.ui:ui:1.4.3") // Ejemplo de última versión
     implementation("androidx.compose.material:material:1.4.3")
     implementation("androidx.compose.ui:ui-tooling-preview:1.4.3")
@@ -56,6 +57,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.runtime.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
