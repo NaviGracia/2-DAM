@@ -6,9 +6,9 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
 
 public class App {
-    private static final String host = "localhost";
     private static final int port = 1337;
     public static void main(String[] args) throws Exception {
         //Parte Servidor
@@ -21,26 +21,6 @@ public class App {
             // TODO: handle exception
             e.printStackTrace();
         }
-
-        //Parte Cliente
-        Client c = new Client(host, port);
-        if (!c.connect()) {
-            System.out.println("Error: Can't connect to the server.");
-            return;
-        }
-        c.send("Hola Mundo!");
-        String ans = c.receive();
-        System.out.println(ans);
-
-        //CLIENTE 2
-        Client c2 = new Client(host, port);
-        if (!c2.connect()) {
-            System.out.println("Error: Can't connect to the server.");
-            return;
-        }
-        c2.send("Aniram al ne atsila!");
-        ans = c2.receive();
-        System.out.println(ans);
     }
 }
 
@@ -80,8 +60,16 @@ class Server implements Runnable{
                 reader = new BufferedReader(isr);
 
                 //Read Message
-                System.out.println("SERVER: Waiting...");
-                String message = reader.readLine();
+                System.out.println("SERVER: Which deck format are you looking for? \n 1.Standard \n 2.Modern \n 3.Commander \n Write only the number: ");
+                int option = Integer.parseInt(reader.readLine());
+                switch (option) {
+                    case 1:
+                        
+                        break;
+                
+                    default:
+                        break;
+                }
                 System.out.println("SERVER: Message received");
 
                 //Get Answer
@@ -110,63 +98,7 @@ class Server implements Runnable{
         return new StringBuilder(message).reverse().toString();
     }
     
-}
 
-class Client{
-    String host = "";
-    int port = 0;
-
-    private Socket socket = null;
-    private InputStreamReader isr = null;
-    private BufferedReader bfr = null;
-
-    final String errorMSG = "CLIENT ERROR";
-    
-    public Client(String host, int port){
-        this.host = host;
-        this.port = port;
-    }
-
-    public boolean connect(){
-        try {
-            socket = new Socket(host, port);
-            System.out.println("CLIENT: Connected");
-            return true;
-        } catch (IOException e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public String receive(){
-        try {
-            isr = new InputStreamReader(socket.getInputStream());
-            bfr = new BufferedReader(isr);
-            String ans = bfr.readLine();
-            System.out.println("CLIENT: Message Received");
-            bfr.close();
-            isr.close();
-            return ans;
-        } catch (Exception e) {
-            // TODO: handle exception
-            return errorMSG;
-        }
-    }
-
-    public boolean send(String message){
-        try {
-            PrintWriter pw = new PrintWriter(socket.getOutputStream());
-            pw.println(message);
-            pw.flush();
-            System.out.println("CLIENT: Message Sent.");
-            return true;
-        } catch (Exception e) {
-            // TODO: handle exception
-            e.printStackTrace();
-            return false;
-        }
-    }
 }
 
 /*
