@@ -5,23 +5,25 @@ body{
 
 .bienvenida{
     margin: 10px;
-    display: inline-block;
     background-color: slategrey;
 }
 
 .bienvenida img{
-    margin: 5px;
+    margin: 0 auto;
     float: left;
+    width: 500px;
+    margin-top: 5px;
 }
 
-.bienvenida h2{
+.bienvenida h1{
     color: snow;
+    text-align: center;
 }
 
 .bienvenida p{
     padding-right: 10px;
     text-align: justify;
     color: snow;
-    font-size: 18px;
+    font-size: 20px;
 }
 

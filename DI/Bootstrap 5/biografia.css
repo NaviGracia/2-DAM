@@ -3,21 +3,13 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-.container{
-margin-top: 5px;
-}
-
-/* Container holding the image and the text */
-.img-text {
-    position: relative;
+h1{
     text-align: center;
-    color: white;
 }
 
-/* Centered text */
-.centered {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.container-fluid{
+    margin-top: 5px;
+    font-size: 20px;
+    text-align: justify;
 }
+

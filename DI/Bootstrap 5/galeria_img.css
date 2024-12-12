@@ -3,6 +3,10 @@ body{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+h1{
+    text-align: center;
+}
+
 .carousel-indicators{
     background-color: slategrey;
     border-radius: 30%;
