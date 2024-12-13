@@ -3,7 +3,7 @@ package com.ig.springboot.id.app.springboot_id2.repositories;
 import java.util.Arrays;
 import java.util.List;
 
-import com.ig.models.Product;
+import com.ig.springboot.id.app.springboot_id2.models.Product;
 
 public class ProductRepository {
 
