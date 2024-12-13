@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <title>Ajani's Page</title>
         <!-- Required meta tags -->
@@ -9,7 +9,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
 
-        <!-- Bootstrap CSS v5.2.1 -->
+        <!-- Bootstrap CSS v5.3.2 -->
         <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -17,38 +17,52 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="galeria_img.css">
+
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
             <div class="container-fluid">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="index.html" class="navbar-brand">
-                            <img src="img/icon_ajani.png" alt="icon_ajani" style="width: 80px;">
-                        </a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-light" href="biografia.html">Biografia</a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-light" href="logros.html">Logros</a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-light" href="galeria_img.html">Galería</a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-light" href="coleccion.html">Colección</a>
-                    </li>
-                    <li class="nav-item mt-3">
-                        <a class="nav-link text-light" href="formulario.html">Formulario</a>
-                    </li>
-                </ul>
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/icon_ajani.png" alt="icon_ajani" style="width: 80px;">
+                </a>
+                <button
+                    class="navbar-toggler navbar-expand-sm"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="biografia.html">Biografía</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="logros.html">Logros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="galeria_img.html">Galería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="coleccion.html">Colección</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="formulario.html">Formulario</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
+
         <header>
-            <h1>Galería de Imágenes</h1>
+            <h1 class="text-center mt-3">Galería de Imágenes</h1>
         </header>
+
         <main>
             <div class="container mt-3">
                 <!-- Carousel -->
@@ -63,9 +77,8 @@
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
                         <button type="button" data-bs-target="#demo" data-bs-slide-to="6"></button>
-                        <button type="button" data-bs-target="#demo" data-bs-slide-to="7"></button>
                     </div>
-                
+
                     <!-- The slideshow/carousel -->
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -90,19 +103,40 @@
                             <img src="img/Ajani, Sleeper Agent.jpg" alt="Ajani, Sleeper Agent" class="d-block w-100">
                         </div>
                     </div>
+
                     <!-- Left and right controls/icons -->
-                    <button class="carousel-control-prev control" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon"></span>
                     </button>
-                    <button class="carousel-control-next control" type="button" data-bs-target="#demo" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </button>
                 </div>
             </div>
         </main>
-        <footer>
-            <!-- place footer here -->
+
+        <footer class="mt-4 bottom-0">
+            <ul class="social-links d-flex justify-content-center flex-wrap">
+                <li class="mx-3 my-2">
+                    <a href="https://www.instagram.com" target="_blank" title="Instagram">
+                        <img src="img/icons/instagram.png" alt="Instagram" class="img-fluid">
+                    </a>
+                </li>
+                <li class="mx-3 my-2">
+                    <a href="https://www.facebook.com" target="_blank" title="Facebook">
+                        <img src="img/icons/facebook.png" alt="Facebook" class="img-fluid">
+                    </a>
+                </li>
+                <li class="mx-3 my-2">
+                    <a href="https://wa.me/" target="_blank" title="Whatsapp">
+                        <img src="img/icons/whatsapp.png" alt="Whatsapp" class="img-fluid">
+                    </a>
+                </li>
+            </ul>
+            <p class="text-center">&copy; 2024 - Protegido por el Guardián de Alara</p>
+            <p class="text-center terms"><a href="#">Términos y Condiciones</a></p>
         </footer>
+
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

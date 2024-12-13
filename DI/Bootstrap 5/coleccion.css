@@ -3,20 +3,25 @@ body{
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
-h1{
-  text-align: center;
-}
-
-button{
-  width: 100%;
+.navbar{
+  border-bottom: 5px solid teal;
 }
 
 .nav-link{
-  border-radius: 50%;
+  width: fit-content;
+  border-radius: 30%;
 }
 
 .nav-link:hover{
   background-color: teal;
+}
+
+main button{
+  width: 100%;
+}
+
+h1{
+  text-align: center;
 }
 
 .card {

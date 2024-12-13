@@ -2,9 +2,25 @@ body{
     background-color: snow;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+.navbar{ 
+    border-bottom: 5px solid teal;
+}
+
+.nav-link{
+    width: fit-content;
+    border-radius: 30%;
+}
+
+.nav-link:hover{
+    background-color: teal;
+}
 
 h1{
     text-align: center;
+}
+
+.carousel{
+    z-index: 0;
 }
 
 .carousel-indicators{
@@ -18,4 +34,59 @@ h1{
 
 span{
     background-color: slategrey;
+}
+
+footer {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 5px solid teal;
+}
+
+footer .social-links {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+footer .social-links li {
+    display: inline;
+}
+
+footer .social-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 28px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+footer p {
+    margin: 10px 0 0;
+    font-size: 16px;
+}
+
+footer .terms {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+footer .terms a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer .terms a:hover {
+    color: #00aced;
+}
+
+.social-links img{
+    width: 80px;
 }

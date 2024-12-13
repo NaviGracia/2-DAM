@@ -1,4 +1,17 @@
 body{
     background-color: snow;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  }
+}
+
+.navbar{
+  border-bottom: 5px solid teal;
+}
+
+.nav-link{
+  width: fit-content;
+  border-radius: 30%;
+}
+
+.nav-link:hover{
+  background-color: teal;
+}
