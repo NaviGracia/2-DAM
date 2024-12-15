@@ -1,15 +1,13 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Mazo {
     private String nombre;
-    private HashMap<Integer, String> cartasMazo;
+    private ArrayList<Carta> mazo = new ArrayList<>();
     private double precio;
     
 
     public Mazo(String nombre, double precio) {
         this.nombre = nombre;
-        this.cartasMazo = new HashMap<>();
         this.precio = precio;
     }
 
@@ -18,15 +16,16 @@ public class Mazo {
     }
 
     public void setNombre(String nombre) {
+
         this.nombre = nombre;
     }
 
-    public HashMap<Integer, String> getCartasMazo() {
-        return cartasMazo;
+    public ArrayList<Carta> getMazo() {
+        return mazo;
     }
 
-    public void setCartasMazo(HashMap<Integer, String> cartasMazo) {
-        this.cartasMazo = cartasMazo;
+    public void setMazo(ArrayList<Carta> mazo) {
+        this.mazo = mazo;
     }
 
     public double getPrecio() {
@@ -36,20 +35,14 @@ public class Mazo {
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-    
-    public void insertarCarta(int numero, String nombreCarta){
-        this.cartasMazo.put(numero, nombreCarta);
-    }
 
     public void generarMazos(){
-        generarMazoRooms();
+        generarMazoLifeStealth();
     }
 
-    public void generarMazoRooms(){
-        
-    }
-
-    public ArrayList<String> generarCartas(){
-        return new ArrayList<>();
+    public void generarMazoLifeStealth(){
+        ArrayList<Carta> mazoLifeStealth = new ArrayList<>();
+        mazoLifeStealth.add(new Carta(1, "Bloodthirsty Conqueror"));
+        this.setMazo(mazoLifeStealth);
     }
 }

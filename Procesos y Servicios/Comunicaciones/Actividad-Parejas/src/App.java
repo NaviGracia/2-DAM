@@ -66,7 +66,7 @@ class Server implements Runnable{
                     case 1:
                         
                         break;
-                
+                        
                     default:
                         break;
                 }
