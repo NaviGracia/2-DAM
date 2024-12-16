@@ -16,6 +16,10 @@ body{
   background-color: teal;
 }
 
+body{
+  margin-bottom: 150px;
+}
+
 .card{
   margin: 10px;
   display: inline-block;
@@ -32,22 +36,21 @@ form{
 }
 
 footer {
+  height: 100px;
   z-index: 1;
-  position: absolute;
   width: 100%;
   background-color: black;
   color: #fff;
-  padding: 20px 0;
-  text-align: center;
+  text-align: left;
   border-top: 5px solid teal;
 }
 
 footer .social-links {
+  width: fit-content;
   list-style: none;
   padding: 0;
   margin: 15px 0;
   display: flex;
-  justify-content: center;
   gap: 25px;
 }
 
@@ -83,7 +86,6 @@ footer .terms a:hover {
 }
 
 .social-links img{
-  width: 80px;
+  width: 50px;
 }
-
 

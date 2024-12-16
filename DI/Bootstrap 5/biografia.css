@@ -21,7 +21,7 @@ h1{
 }
 
 body{
-    margin-bottom: 200px;
+    margin-bottom: 150px;
 }
 
 main .container-fluid{
@@ -31,9 +31,8 @@ main .container-fluid{
 }
 
 footer {
-    height: 150px;
+    height: 100px;
     z-index: 1;
-    position: absolute;
     width: 100%;
     background-color: black;
     color: #fff;
@@ -82,5 +81,5 @@ footer .terms a:hover {
 }
 
 .social-links img{
-    width: 60px;
+    width: 50px;
 }
