@@ -64,21 +64,22 @@ class Server implements Runnable{
                 //Read Message
                 System.out.println("SERVER: Which deck format are you looking for? \n 1.Modern \n 2.Commander \n Write only the number: ");
                 int option = Integer.parseInt(reader.readLine());
+                //Write Answer
+                os = client.getOutputStream();
+                pw = new PrintWriter(os);
                 switch (option) {
                     case 1:
-                        mostrarMazo(mazos, 1);
+                        mostrarMazo(mazos, 1, pw);
                         break;
                     case 2:
-                        mostrarMazo(mazos, 2);
+                        mostrarMazo(mazos, 2, pw);
                         break;
                     default:
                         break;
                 }
                 System.out.println("SERVER: Message received");
 
-                //Write Answer
-                os = client.getOutputStream();
-                pw = new PrintWriter(os);
+                
                 System.out.println("SERVER: Message Sent");
 
                 //Close Handlers
@@ -93,11 +94,11 @@ class Server implements Runnable{
         }
     }
 
-    private void mostrarMazo(HashMap<Integer, Mazo> mazos, int numeroMazo){
+    private void mostrarMazo(HashMap<Integer, Mazo> mazos, int numeroMazo, PrintWriter pw){
         ArrayList<Carta> cartas = mazos.get(numeroMazo).getMazo();
         System.out.println(mazos.get(numeroMazo).getNombre() + " : " + mazos.get(numeroMazo).getPrecio() + "€");
         for (int i = 0; i < cartas.size(); i++) {
-            System.out.println(cartas.get(i).getCantidad() + " " + cartas.get(i).getNombre());
+            pw.write(cartas.get(i).getCantidad() + " " + cartas.get(i).getNombre());
         }
     }
 
