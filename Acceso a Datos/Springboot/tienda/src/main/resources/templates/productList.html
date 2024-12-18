@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+            text-align: left;
+        }
+        .no-users {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>Nuevo Producto</nav>
+    <h1 th:text="${title}"></h1>
+
+    <!-- Tabla para mostrar usuarios -->
+    <div th:if="${users.size() > 0}">
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+            </tr>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.lastname}"></td>
+                <td th:if="${user.email}" th:text="${user.email}"></td>
+                <td th:if="${user.email == null}" th:text="'No tiene email'"></td>
+            </tr>
+        </table>
+    </div>
+    <div th:if="${users.size() == 0}">
+        <p>No hay usuarios registrados.</p>
+    </div>
+</body>
+</html>
