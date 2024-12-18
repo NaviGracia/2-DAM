@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                         )
                         }*/
                 }
-                MyFirstApp()
+                SuperHeroView()
             }
         }
     }
@@ -52,7 +52,7 @@ class MainActivity : ComponentActivity() {
 /*
 var sliderPosition by rememberSaveable { mutableStateOf(0f) }
 var openAlert by rememberSaveable { mutableStateOf(0f) }
-*/
+
 
 //FirstApp
 @Preview(showBackground = true)
@@ -90,3 +90,5 @@ fun createText(newText: String, size: Int, newModifier: Modifier){
         modifier = newModifier
     )
 }
+
+ */
