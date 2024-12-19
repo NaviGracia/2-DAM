@@ -8,18 +8,18 @@ public class Product implements Cloneable{
     private String nombre;
     private Long precio;
     private Long precioConTaxas;
-    private Long idTipoProducto;
+    private Long idCategoria;
     private String nombreTipoProducto;
 
     public Product() {}
 
-    public Product(Long id, String nombre, Long precio, Long idTipoProducto) {
+    public Product(Long id, String nombre, Long precio, Long idCategoria) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.precioConTaxas = calculatePrecioWithIVA(precio);
-        this.idTipoProducto = idTipoProducto;
-        this.nombreTipoProducto = getNombrePorID(tiposProducto, idTipoProducto);
+        this.idCategoria = idCategoria;
+        this.nombreTipoProducto = getNombrePorID(tiposProducto, idCategoria);
     }
 
     public Long getId() {
@@ -54,12 +54,12 @@ public class Product implements Cloneable{
         this.precioConTaxas = precioConTaxas;
     }
 
-    public Long getIdTipoProducto() {
-        return idTipoProducto;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
 
-    public void setIdTipoProducto(Long idTipoProducto) {
-        this.idTipoProducto = idTipoProducto;
+    public void setIdCategoria(Long idCategoria) {
+        this.idCategoria = idCategoria;
     }
 
     public String getNombreTipoProducto() {

@@ -15,7 +15,7 @@
 </head>
 <body>
     <h1 th:text="${title}"></h1>
-
+    <button><a href="/nuevoProducto">Nuevo Producto</a></button>
     <!-- Tabla para mostrar usuarios -->
     <div th:if="${productos.size() > 0}">
         <table>
@@ -32,7 +32,7 @@
                 <td th:text="${producto.nombre}"></td>
                 <td th:text="${producto.precio}"></td>
                 <td th:text="${producto.precioConTaxas}"></td>
-                <td th:text="${producto.idTipoProducto}"></td>
+                <td th:text="${producto.idCategoria}"></td>
                 <td th:text="${producto.nombreTipoProducto}"></td>
             </tr>
         </table>

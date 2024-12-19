@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ivangarcia.springboot.actividadfinal.tienda.models.Product;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -31,20 +33,25 @@ public class UserController {
         return "listaProductos";
     }
 
+    @GetMapping("/nuevoProducto")
+    public String nuevoProducto() {
+        return "nuevoProducto";
+    }
+    
     @PostMapping("/nuevoProducto")
     public String processForm(
         @RequestParam(value = "id", required = false) Long id,
-        @RequestParam(value = "name", required = false) String name,
-        @RequestParam(value = "price", required = false) Long price,
-        @RequestParam(value = "productTypeId", required = false) Long productTypeId,
+        @RequestParam(value = "nombre", required = false) String nombre,
+        @RequestParam(value = "precio", required = false) Long precio,
+        @RequestParam(value = "idCategoria", required = false) Long idCategoria,
         Model model) {
 
-        if (name != null && !name.isEmpty() &&
+        if (nombre != null && !nombre.isEmpty() &&
             id != null &&
-            price != null &&
-            productTypeId != null) {
+            precio != null &&
+            idCategoria != null) {
 
-            Product newProduct = new Product(id, name, price, productTypeId);
+            Product newProduct = new Product(id, nombre, precio, idCategoria);
             productos.add(newProduct);
         }
 

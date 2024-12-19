@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ejercicio Final: Nuevo Producto</title>
 </head>
 <body>
     <!-- Formulario -->
-    <h2>Formulario de datos de usuario</h2>
-    <form th:action="@{/listaUsuarios}" method="post">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" name="name" placeholder="Nombre"><br><br>
+    <h2>Agregar Nuevo Producto</h2>
+    <form th:action="@{/nuevoProducto}" method="post">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" placeholder="ID"><br><br>
 
-        <label for="lastname">Apellidos:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Apellidos"><br><br>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre"><br><br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Email"><br><br>
+        <label for="precio">Precio:</label>
+        <input type="precio" id="precio" name="precio" placeholder="Precio"><br><br>
 
-        <button type="submit">Agregar Usuario</button>
+        <label for="idCategoria">ID Categoria:</label>
+        <input type="idCategoria" id="idCategoria" name="idCategoria" placeholder="ID Categoria"><br><br>
+
+        <button type="submit">Agregar Producto</button>
     </form>
 </body>
 </html>
