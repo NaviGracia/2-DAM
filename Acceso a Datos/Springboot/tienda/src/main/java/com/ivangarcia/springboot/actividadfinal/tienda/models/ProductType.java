@@ -1,14 +1,16 @@
 package com.ivangarcia.springboot.actividadfinal.tienda.models;
 
+import java.util.ArrayList;
+
 public class ProductType {
     private Long id;
-    private String name;
-    private String description;
+    private String nombre;
+    private String descripcion;
 
-    public ProductType(Long id, String name, String description) {
+    public ProductType(Long id, String nombre, String descrition) {
         this.id = id;
-        this.name = name;
-        this.description = description;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
     }
 
     public Long getId() {
@@ -19,28 +21,19 @@ public class ProductType {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void generarTipos(){
-        ProductType pt1 = new ProductType(1L, "Play Booster", "Sobre que contiene 15 cartas");
-        ProductType pt2 = new ProductType(2L, "Bundle", "Caja Temática del set que contiene 9 Play Boosters, 1 dado d20, 1 Sobre de Coleccionista de Muestra y 40 cartas de tierra (20 Full-Art Foil y 20 Full-Art)");
-    }
-
-    public String getNombrePorID(ProductType pt){
-        return pt.getName()
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 }

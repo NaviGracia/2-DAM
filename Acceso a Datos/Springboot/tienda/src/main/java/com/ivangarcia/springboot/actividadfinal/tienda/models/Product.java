@@ -1,7 +1,9 @@
 package com.ivangarcia.springboot.actividadfinal.tienda.models;
 
-public class Product implements Cloneable{
+import java.util.ArrayList;
 
+public class Product implements Cloneable{
+    ArrayList<ProductType> tiposProducto = generarTiposProducto();
     private Long id;
     private String nombre;
     private Long precio;
@@ -17,7 +19,7 @@ public class Product implements Cloneable{
         this.precio = precio;
         this.precioConTaxas = calculatePrecioWithIVA(precio);
         this.idTipoProducto = idTipoProducto;
-        this.nombreTipoProducto = "";
+        this.nombreTipoProducto = getNombrePorID(tiposProducto, idTipoProducto);
     }
 
     public Long getId() {
@@ -70,6 +72,23 @@ public class Product implements Cloneable{
 
     private Long calculatePrecioWithIVA(Long precio){
         return precio + ((precio * 21) / 100);
+    }
+
+    public ArrayList<ProductType> generarTiposProducto(){
+        ArrayList<ProductType> tiposProductos = new ArrayList<>();
+        tiposProductos.add(new ProductType(1L, "Play Booster", "Sobre que contiene 15 cartas"));
+        tiposProductos.add(new ProductType(2L, "Bundle", "Caja Temática del set que contiene 9 Play Boosters, 1 dado d20, 1 Sobre de Coleccionista de Muestra y 40 cartas de tierra (20 Full-Art Foil y 20 Full-Art)"));
+        return tiposProductos;
+    }
+
+    public String getNombrePorID(ArrayList<ProductType> tipos, Long id){
+        String nombre = "";
+        for (ProductType tipo : tipos) {
+            if (tipo.getId()==id) {
+                nombre = tipo.getNombre();
+            }
+        }
+        return nombre;
     }
 
     @Override
