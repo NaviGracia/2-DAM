@@ -24,14 +24,53 @@ h1, h3, h4{
   text-align: center;
 }
 
-h4{
-  border-bottom: 2px solid teal;
+p{
+  font-size: large;
 }
+
+@media (min-width: 1500px) {
+  .modal-dialog {
+    max-width: 50%; /* Ancho personalizado para pantallas grandes */
+  }
+}
+
+@media (max-width: 1499px) {
+  .modal-dialog {
+    max-width: 80%; /* Ancho reducido para pantallas pequeñas */
+  }
+}
+
 
 .card{
   margin-right: 5px;
   margin-bottom: 5px;
   border: 2px solid teal;
+}
+
+.btn-primary{
+  margin: 20px;
+  background-color: teal;
+  border-radius: 15%;
+}
+
+.btn-primary:hover{
+  background-color: teal;
+  animation: 1s animation infinite linear;
+}
+
+@keyframes animation{
+  0%{
+    scale: 1;
+    opacity: 1;
+  }
+  50%{
+    scale: 1.05;
+    opacity: 0.8;
+  }
+  100%{
+    scale: 1;
+    opacity: 1;
+  }
 }
 
 img{
