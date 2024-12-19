@@ -35,7 +35,12 @@ public class ProductType {
         this.description = description;
     }
 
-    public getNameById(Long id){
-        
+    public void generarTipos(){
+        ProductType pt1 = new ProductType(1L, "Play Booster", "Sobre que contiene 15 cartas");
+        ProductType pt2 = new ProductType(2L, "Bundle", "Caja Temática del set que contiene 9 Play Boosters, 1 dado d20, 1 Sobre de Coleccionista de Muestra y 40 cartas de tierra (20 Full-Art Foil y 20 Full-Art)");
+    }
+
+    public String getNombrePorID(ProductType pt){
+        return pt.getName()
     }
 }

@@ -3,21 +3,21 @@ package com.ivangarcia.springboot.actividadfinal.tienda.models;
 public class Product implements Cloneable{
 
     private Long id;
-    private String name;
-    private Long price;
-    private Long priceWithTaxes;
-    private Long productTypeId;
-    private String productTypeName;
+    private String nombre;
+    private Long precio;
+    private Long precioConTaxas;
+    private Long idTipoProducto;
+    private String nombreTipoProducto;
 
     public Product() {}
 
-    public Product(Long id, String name, Long price, Long productTypeId) {
+    public Product(Long id, String nombre, Long precio, Long idTipoProducto) {
         this.id = id;
-        this.name = name;
-        this.price = price;
-        this.priceWithTaxes = calculatePriceWithIVA(price);
-        this.productTypeId = productTypeId;
-        this.productTypeName = "";
+        this.nombre = nombre;
+        this.precio = precio;
+        this.precioConTaxas = calculatePrecioWithIVA(precio);
+        this.idTipoProducto = idTipoProducto;
+        this.nombreTipoProducto = "";
     }
 
     public Long getId() {
@@ -28,48 +28,48 @@ public class Product implements Cloneable{
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public Long getPrice() {
-        return price;
+    public Long getPrecio() {
+        return precio;
     }
 
-    public void setPrice(Long price) {
-        this.price = price;
+    public void setPrecio(Long precio) {
+        this.precio = precio;
     }
 
-    public Long getPriceWithTaxes() {
-        return priceWithTaxes;
+    public Long getPrecioConTaxas() {
+        return precioConTaxas;
     }
 
-    public void setPriceWithTaxes(Long priceWithTaxes) {
-        this.priceWithTaxes = priceWithTaxes;
+    public void setPrecioConTaxas(Long precioConTaxas) {
+        this.precioConTaxas = precioConTaxas;
     }
 
-    public Long getProductTypeId() {
-        return productTypeId;
+    public Long getIdTipoProducto() {
+        return idTipoProducto;
     }
 
-    public void setProductTypeId(Long productTypeId) {
-        this.productTypeId = productTypeId;
+    public void setIdTipoProducto(Long idTipoProducto) {
+        this.idTipoProducto = idTipoProducto;
     }
 
-    public String getProductTypeName() {
-        return productTypeName;
+    public String getNombreTipoProducto() {
+        return nombreTipoProducto;
     }
 
-    public void setProductTypeName(String productTypeName) {
-        this.productTypeName = productTypeName;
+    public void setNombreTipoProducto(String nombreTipoProducto) {
+        this.nombreTipoProducto = nombreTipoProducto;
     }
 
-    private Long calculatePriceWithIVA(Long price){
-        return price + ((price * 21) / 100);
+    private Long calculatePrecioWithIVA(Long precio){
+        return precio + ((precio * 21) / 100);
     }
 
     @Override
