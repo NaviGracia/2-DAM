@@ -15,6 +15,8 @@
 </head>
 <body>
     <h1 th:text="${title}"></h1>
+    <button><a href="/listaCategorias">Categorias</a></button>
+    <br>
     <button><a href="/nuevoProducto">Nuevo Producto</a></button>
     <!-- Tabla para mostrar usuarios -->
     <div th:if="${productos.size() > 0}">
@@ -22,18 +24,19 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Categoria</th>
                 <th>Precio (Sin IVA)</th>
                 <th>Precio (Con IVA)</th>
-                <th>ID Tipo Producto</th>
-                <th>Nombre Tipo Producto</th>
+                <th>Acciones</th>
+                
             </tr>
             <tr th:each="producto : ${productos}">
                 <td th:text="${producto.id}"></td>
                 <td th:text="${producto.nombre}"></td>
+                <td th:text="${producto.nombreTipoProducto}"></td>
                 <td th:text="${producto.precio}"></td>
                 <td th:text="${producto.precioConTaxas}"></td>
-                <td th:text="${producto.idCategoria}"></td>
-                <td th:text="${producto.nombreTipoProducto}"></td>
+                <td><a th:href="@{/modificarProducto/{id}(id=${producto.id})}">Modificar</a> | <a th:href="@{/eliminarProducto/{id}(id=${producto.id})}">Eliminar</a></td>
             </tr>
         </table>
     </div>

@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio Final: Nuevo Producto</title>
+    <title>Ejercicio Final: Modificar Producto</title>
 </head>
 <body>
     <!-- Formulario -->
-    <h2>Agregar Nuevo Producto</h2>
-    <form th:action="@{/nuevoProducto}" method="post">
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" placeholder="ID"><br><br>
-
+    <h2>Modificar Producto</h2>
+    <form th:action="@{/modificarProducto/{id}(id=${producto.id})}" method="post">
         <label for="nombre">Nombre:</label>
-        <input type="text" id="nombre" name="nombre" placeholder="Nombre"><br><br>
+        <input type="text" id="nombre" name="nombre" th:value="${producto.nombre}" placeholder="Nombre"><br><br>
 
         <label for="precio">Precio:</label>
-        <input type="precio" id="precio" name="precio" placeholder="Precio"><br><br>
+        <input type="number" id="precio" name="precio" th:value="${producto.precio}" placeholder="Precio"><br><br>
 
         <label for="idCategoria">ID Categoria:</label>
         <select id="idCategoria" name="idCategoria">
             <option th:each="categoria : ${categorias}" th:value="${categoria.id}" th:text="${categoria.nombre}"></option>
         </select><br><br>
 
-        <button type="submit">Agregar Producto</button>
+        <button type="submit">Confirmar Modificación</button>
     </form>
 </body>
 </html>
