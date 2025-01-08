@@ -32,17 +32,16 @@ public class Cliente implements Runnable {
             // Recibir el mensaje de WELCOME
             System.out.println("CLIENT: " + receive());
 
-            System.out.println("CLIENT: Sending username...");
             //Mandar usuario
             send();
+            System.out.println("CLIENT: Sending username...");
 
             //Recibir mensaje de usuario
             System.out.println("CLIENT: " + receive());
 
-            System.out.println("CLIENT: Sending password...");
             //Mandar password
             send();
-
+            System.out.println("CLIENT: Sending password...");
             
             String loginResponse = receive();
             System.out.println("CLIENT: " + loginResponse);
@@ -50,18 +49,19 @@ public class Cliente implements Runnable {
             if (loginResponse.contains("ACCESO PERMITIDO")) {
                 System.out.println("CLIENT: " + receive());
 
-                System.out.println("CLIENT: Sending card request...");
                 //Mandamos las cartas a buscar
                 send();
-
-                String serverResponse;
-                while ((serverResponse = receive()) != null) {
-                    System.out.println("CLIENT: " + serverResponse);
+                System.out.println("CLIENT: Sending card request...");
+                
+                while (bfr.readLine()!=null) {
+                    System.out.println(bfr.readLine());
                 }
+                System.out.println("CLIENT: Message Received");
             } else {
                 System.out.println("CLIENT: Login failed. Exiting...");
             }
-
+            bfr.close();
+            isr.close();
         } catch (Exception e) {
             System.err.println("CLIENT: Error communicating with server: " + e.getMessage());
         }
@@ -73,7 +73,6 @@ public class Cliente implements Runnable {
             System.out.println("CLIENT: Connected");
             return true;
         } catch (IOException e) {
-            // TODO: handle exception
             e.printStackTrace();
             return false;
         }
@@ -85,11 +84,8 @@ public class Cliente implements Runnable {
             bfr = new BufferedReader(isr);
             String ans = bfr.readLine();
             System.out.println("CLIENT: Message Received");
-            bfr.close();
-            isr.close();
             return ans;
         } catch (Exception e) {
-            // TODO: handle exception
             return errorMSG;
         }
     }
