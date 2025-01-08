@@ -1,76 +1,110 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
 public class Cliente implements Runnable {
     public static void main(String[] args) {
-        Cliente client = new Cliente();
-        client.run();    
+        Cliente cliente = new Cliente();  
+        cliente.run();  
     }
 
-    Scanner sc = new Scanner(System.in);
-    
     private final String serverAddress;
     private final int serverPort;
 
+    private Socket socket = null;
+    private InputStreamReader isr = null;
+    private BufferedReader bfr = null;
+
+    Scanner sc = new Scanner(System.in);
+    final String errorMSG = "CLIENT ERROR";
+
+    // Constructor
     public Cliente() {
-        this.serverAddress = "192.168.56.1";
+        this.serverAddress = "192.168.67.184";
         this.serverPort = 1337;
     }
 
     @Override
     public void run() {
-        try {
-            Socket socket = new Socket(serverAddress, serverPort);
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        try{
+            connect();
 
-            // Paso 1: Recibir mensaje de bienvenida
-            System.out.println("CLIENT: MENSAJE RECIBIDO: " + in.readLine());
+            // Recibir el mensaje de WELCOME
+            System.out.println("CLIENT: " + receive());
 
-            // Paso 2: Enviar nombre de usuario
-            String username = sc.nextLine();
-            out.println(username);
-            out.flush();
-            System.out.println("Sending username...");
+            System.out.println("CLIENT: Sending username...");
+            //Mandar usuario
+            send();
 
-            //user: ajani | password: contadores
+            //Recibir mensaje de usuario
+            System.out.println("CLIENT: " + receive());
 
-            // Paso 3: Enviar contraseña
-            String password = sc.nextLine();
-            out.println(password);
-            out.flush();
-            System.out.println("Sending password...");
+            System.out.println("CLIENT: Sending password...");
+            //Mandar password
+            send();
 
-            // Paso 4: Recibir respuesta del servidor
-            String loginResponse = in.readLine();
-            System.out.println("CLIENT: MENSAJE RECIBIDO: " + loginResponse);
+            
+            String loginResponse = receive();
+            System.out.println("CLIENT: " + loginResponse);
 
             if (loginResponse.contains("ACCESO PERMITIDO")) {
-                // Step 5: Server requests card names
-                System.out.println("CLIENT: MENSAJE RECIBIDO: " + in.readLine());
+                System.out.println("CLIENT: " + receive());
 
-                // Step 6: Send card names
-                System.out.println("Sending card request...");
-                out.println("Ancestor's Chosen, Lightning Bolt, Black Lotus");
+                System.out.println("CLIENT: Sending card request...");
+                //Mandamos las cartas a buscar
+                send();
 
-                // Step 7: Receive server response with card data
-                String serverResponse = in.readLine();
-                System.out.println("CLIENT: MENSAJE RECIBIDO: " + serverResponse);
-
+                String serverResponse;
+                while ((serverResponse = receive()) != null) {
+                    System.out.println("CLIENT: " + serverResponse);
+                }
             } else {
-                System.out.println("Login failed. Exiting client.");
+                System.out.println("CLIENT: Login failed. Exiting...");
             }
 
-            socket.close();
+        } catch (Exception e) {
+            System.err.println("CLIENT: Error communicating with server: " + e.getMessage());
+        }
+    }
 
+    public boolean connect(){
+        try {
+            socket = new Socket(serverAddress, serverPort);
+            System.out.println("CLIENT: Connected");
+            return true;
         } catch (IOException e) {
-            System.err.println("Error communicating with server: " + e.getMessage());
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public String receive(){
+        try {
+            isr = new InputStreamReader(socket.getInputStream());
+            bfr = new BufferedReader(isr);
+            String ans = bfr.readLine();
+            System.out.println("CLIENT: Message Received");
+            bfr.close();
+            isr.close();
+            return ans;
+        } catch (Exception e) {
+            // TODO: handle exception
+            return errorMSG;
+        }
+    }
+
+    public boolean send(){
+        try {
+            PrintWriter pw = new PrintWriter(socket.getOutputStream());
+            pw.println(sc.nextLine());
+            pw.flush();
+            System.out.println("CLIENT: Message Sent.");
+            return true;
+        } catch (Exception e) {
+            // TODO: handle exception
+            e.printStackTrace();
+            return false;
         }
     }
 }
-
-
