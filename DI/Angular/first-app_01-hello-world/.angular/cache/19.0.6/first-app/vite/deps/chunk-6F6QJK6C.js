@@ -8,7 +8,7 @@ import {
   isPlatformServer,
   parseCookieValue,
   setRootDomAdapter
-} from "./chunk-KD276FXN.js";
+} from "./chunk-F5WCZQJ5.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   APP_ID,
@@ -87,9 +87,9 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-GZKEX4RU.js";
+} from "./chunk-2GUOE6TP.js";
 
-// node_modules/@angular/common/fesm2022/http.mjs
+// ../node_modules/@angular/common/fesm2022/http.mjs
 var HttpHandler = class {
 };
 var HttpBackend = class {
@@ -2411,7 +2411,7 @@ function verifyMappedOrigin(url) {
   }
 }
 
-// node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
+// ../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs
 var GenericBrowserDomAdapter = class extends DomAdapter {
   supportsDOMEvents = true;
 };
@@ -4303,4 +4303,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-6VOFJZQK.js.map
+//# sourceMappingURL=chunk-6F6QJK6C.js.map
