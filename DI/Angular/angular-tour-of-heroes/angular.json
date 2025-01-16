@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MyFirstAngula": {
+    "angular-tour-of-heroes": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/my-first-angula",
+            "outputPath": "dist/angular-tour-of-heroes",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -59,10 +59,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "MyFirstAngula:build:production"
+              "buildTarget": "angular-tour-of-heroes:build:production"
             },
             "development": {
-              "buildTarget": "MyFirstAngula:build:development"
+              "buildTarget": "angular-tour-of-heroes:build:development"
             }
           },
           "defaultConfiguration": "development"

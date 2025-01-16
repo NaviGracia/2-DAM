@@ -1,5 +1,5 @@
 {
-  "name": "my-first-angula",
+  "name": "angular-tour-of-heroes",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
