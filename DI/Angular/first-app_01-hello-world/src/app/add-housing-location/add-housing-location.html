@@ -1,0 +1,46 @@
+<h2>Add New Housing Location</h2>
+<form (ngSubmit)="submitForm()">
+  <div>
+    <label>
+      Name:
+      <input type="text" [(ngModel)]="newHousingLocation.name" name="name" required />
+    </label>
+  </div>
+  <div>
+    <label>
+      City:
+      <input type="text" [(ngModel)]="newHousingLocation.city" name="city" required />
+    </label>
+  </div>
+  <div>
+    <label>
+      State:
+      <input type="text" [(ngModel)]="newHousingLocation.state" name="state" required />
+    </label>
+  </div>
+  <div>
+    <label>
+      Photo:
+      <input type="file" id="photo" (change)="onFileSelected($event)" />
+    </label>
+  </div>
+  <div>
+    <label>
+      Units Available:
+      <input type="number" [(ngModel)]="newHousingLocation.availableUnits" name="availableUnits" />
+    </label>
+  </div>
+  <div>
+    <label>
+      ¿Wifi?
+      <input type="checkbox" [(ngModel)]="newHousingLocation.wifi" name="wifi" />
+    </label>
+  </div>
+  <div>
+    <label>
+      ¿Laundry?
+      <input type="checkbox" [(ngModel)]="newHousingLocation.laundry" name="pets" />
+    </label>
+  </div>
+  <button type="submit">Add</button>
+</form>

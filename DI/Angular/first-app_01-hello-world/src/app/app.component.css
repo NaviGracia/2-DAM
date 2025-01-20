@@ -10,3 +10,12 @@ header {
 .content {
   padding: var(--content-padding);
 }
+
+#new_hl{
+  position: relative;
+  bottom: 10px;
+  padding: 55px;
+  color: #605DC8;
+}
+
+
