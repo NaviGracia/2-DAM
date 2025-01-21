@@ -66,7 +66,7 @@ fun Footer(mod: Modifier) {
 fun Body(mod: Modifier) {
     var email by loginVM.email.observeAsState("")
     var password by loginVM.password.observeAsState("")
-    var isLoginEnable by loginVM.isLoginEnabled.observeAsState(false)
+    var isLoginEnable by ºloginVM.isLoginEnabled.observeAsState(false)
     Column(modifier = mod) {
         ImageLogo(Modifier.align(Alignment.CenterHorizontally))
         Spacer(modifier = Modifier.size(16.dp))

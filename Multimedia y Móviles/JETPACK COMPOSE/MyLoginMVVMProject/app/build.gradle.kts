@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.myloginmvvmproject"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.myloginmvvmproject"
@@ -40,7 +40,9 @@ android {
 }
 
 dependencies {
-
+    implementation ("androidx.navigation:navigation-compose:2.5.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+    implementation ("androidx.compose.runtime:runtime-livedata:1.5.4")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
