@@ -1,16 +1,19 @@
 <h2>Editar Housing Location</h2>
-<form (ngSubmit)="submitForm()">
-  <label for="name">Name:</label>
-  <input id="name" [(ngModel)]="housingLocation.name" name="name" required />
 
-  <label for="city">City:</label>
-  <input id="city" [(ngModel)]="housingLocation.city" name="city" required />
+<div>
+  <form (ngSubmit)="submitForm()">
+    <label for="name">Nombre:</label>
+    <input id="name" [(ngModel)]="housingLocation.name" name="name" required />
 
-  <label for="state">State:</label>
-  <input id="state" [(ngModel)]="housingLocation.state" name="state" required />
+    <label for="city">Ciudad:</label>
+    <input id="city" [(ngModel)]="housingLocation.city" name="city" required />
 
-  <label for="photo">Photo:</label>
-  <input id="photo" type="file" (change)="onFileSelected($event)" />
+    <label for="state">Estado:</label>
+    <input id="state" [(ngModel)]="housingLocation.state" name="state" required />
 
-  <button type="submit">Save Changes</button>
-</form>
+    <label for="photo">Foto:</label>
+    <input id="photo" type="file" (change)="onFileSelected($event)" />
+
+    <button type="submit">Guardar</button>
+  </form>
+</div>

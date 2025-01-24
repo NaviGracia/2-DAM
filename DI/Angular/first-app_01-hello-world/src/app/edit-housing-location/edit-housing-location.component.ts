@@ -2,14 +2,28 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HousingService } from '../housing.service';
 import { HousingLocation } from '../housinglocation';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-housing-location',
   templateUrl: './edit-housing-location.component.html',
-  styleUrls: ['./edit-housing-location.component.css']
+  styleUrls: ['./edit-housing-location.component.css'],
+  imports: [
+    FormsModule,
+  ],
 })
 export class EditHousingLocationComponent implements OnInit {
-  housingLocation: HousingLocation | null = null;
+  housingLocation: HousingLocation = {
+    id: 0,
+    name: '',
+    city: '',
+    state: '',
+    photo: '',
+    availableUnits: 0,
+    wifi: false,
+    laundry:false,
+  };
+  
   selectedFile: File | null = null;
 
   constructor(
@@ -20,10 +34,18 @@ export class EditHousingLocationComponent implements OnInit {
 
   ngOnInit(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.housingLocation = this.housingService
+    const location = this.housingService
       .getAllHousingLocations()
-      .find((location) => location.id === id) || null;
+      .find((loc) => loc.id === id);
+  
+    if (location) {
+      this.housingLocation = location; // Solo asigna si existe un valor válido
+    } else {
+      alert('HousingLocation no encontrado.');
+      this.router.navigate(['/']); // Redirige si no se encuentra
+    }
   }
+  
 
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;

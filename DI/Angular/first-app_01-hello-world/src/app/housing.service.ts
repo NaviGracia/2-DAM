@@ -47,6 +47,26 @@ export class HousingService {
     this.housingLocationList.push(location);
   }
   
+  updateHousingLocation(updatedLocation: HousingLocation): void {
+    const index = this.housingLocationList.findIndex(
+      (location) => location.id === updatedLocation.id
+    );
+  
+    if (index !== -1) {
+      this.housingLocationList[index] = updatedLocation; // Actualiza la ubicación en la lista
+    } else {
+      console.error('No se encontró la ubicación con el id:', updatedLocation.id);
+    }
+  }
+  
+  deleteHousingLocation(id: number): void {
+    const index = this.housingLocationList.findIndex((location) => location.id === id);
+    if (index !== -1) {
+      this.housingLocationList.splice(index, 1); // Elimina el elemento de la lista
+    } else {
+      console.error('No se encontró la ubicación con el id:', id);
+    }
+  }
   
   
 }
