@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    background-color: #0A1828;
+}
+
+body  {
+    color: #BFA181;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    padding: 15px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+nav {
+    color: #178582;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+nav a {
+    color: #3dc5c1;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+
+.search-bar {
+    text-align: center;
+    margin: 20px;
+}
+.search-bar input {
+    background-color: white;
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 5px;
+}
+
+hr{
+    background-color: #BFA181;
+    height: 1px;
+    width: 98%;
+}
