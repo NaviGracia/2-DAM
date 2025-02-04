@@ -58,15 +58,15 @@ fun LoginScreen() {
 }
 
 @Composable
-fun Footer(mod: Modifier) {
+private fun Footer(mod: Modifier) {
 
 }
 
 @Composable
 fun Body(mod: Modifier) {
-    var email by loginVM.email.observeAsState("")
-    var password by loginVM.password.observeAsState("")
-    var isLoginEnable by ºloginVM.isLoginEnabled.observeAsState(false)
+    var email by rememberSaveable { mutableStateOf("") }
+    var password by rememberSaveable { mutableStateOf("") }
+    var isLoginEnable by rememberSaveable { mutableStateOf(false) }
     Column(modifier = mod) {
         ImageLogo(Modifier.align(Alignment.CenterHorizontally))
         Spacer(modifier = Modifier.size(16.dp))
