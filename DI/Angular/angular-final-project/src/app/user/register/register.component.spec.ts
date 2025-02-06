@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TcgPageComponent } from './tcg-page.component';
+import { RegisterComponent } from './register.component';
 
-describe('TcgPageComponent', () => {
-  let component: TcgPageComponent;
-  let fixture: ComponentFixture<TcgPageComponent>;
+describe('RegisterComponent', () => {
+  let component: RegisterComponent;
+  let fixture: ComponentFixture<RegisterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TcgPageComponent]
+      imports: [RegisterComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(TcgPageComponent);
+    fixture = TestBed.createComponent(RegisterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

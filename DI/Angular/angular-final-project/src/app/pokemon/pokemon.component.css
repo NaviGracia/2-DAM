@@ -1,0 +1,27 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .sets-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .set-card {
+    background: #0A1828;
+    color: #BFA181;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .set-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  

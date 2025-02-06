@@ -1,12 +1,11 @@
 <header>TCG Hub - Información de Juegos de Cartas</header>
     <nav>
-        <a href="#">Inicio</a>
-        <a [routerLink]="['/tcg', 'pokemon']">Pokémon TCG</a>
-        <a [routerLink]="['/tcg', 'yugioh']">Yu-Gi-Oh!</a>
-        <a [routerLink]="['/tcg', 'magic']">Magic: The Gathering</a>
+        <a href="">Inicio</a>
+        <a [routerLink]="['/pokemon']">Pokémon TCG</a>
+        <a [routerLink]="['/magic']">Magic: The Gathering</a>
     </nav>
     <div class="search-bar">
         <input type="text" placeholder="Buscar sets, cartas o información...">
     </div>
 <hr>
-<app-home></app-home>
+<router-outlet></router-outlet>

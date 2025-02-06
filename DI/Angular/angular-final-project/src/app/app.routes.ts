@@ -1,9 +1,11 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { TcgPageComponent } from './tcg-page/tcg-page.component';
+import { PokemonComponent } from './pokemon/pokemon.component';
+import { MTGComponent } from './mtg/mtg.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'tcg/:name', component: TcgPageComponent },
-  { path: '**', redirectTo: '' }
+  { path: 'pokemon', component: PokemonComponent },
+  { path: 'magic', component: MTGComponent }
 ];
+

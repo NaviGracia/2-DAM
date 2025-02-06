@@ -1,0 +1,29 @@
+.register-container {
+    width: 300px;
+    margin: auto;
+    text-align: center;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+  }
+  
+  button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  small {
+    color: red;
+  }
+  
