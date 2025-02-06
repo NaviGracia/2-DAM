@@ -58,6 +58,11 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
+    //DAGGER:HILT (INYECCION DEPENDENCIAS)
     implementation("com.google.dagger:hilt-android:2.55")
     ksp("com.google.dagger:hilt-compiler:2.55")
+    //ROOM
+    implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 }
