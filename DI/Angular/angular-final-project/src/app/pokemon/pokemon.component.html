@@ -1,13 +1,13 @@
-<h2>Pokémon TCG</h2>
-<p>Aquí encontrarás información sobre los sets y cartas de Pokémon TCG.</p>
 <div class="container">
-    <h2>Sets de Pokémon TCG</h2>
-    <div class="sets-grid">
-      <div class="set-card" *ngFor="let set of sets">
-        <img [src]="set.logo" [alt]="set.name">
+  <h2>Sets de Pokémon TCG</h2>
+
+  <div class="sets-list">
+    <div class="set-item" *ngFor="let set of sets">
+      <img [src]="set.images.logo" [alt]="set.name">
+      <div class="set-info">
         <h3>{{ set.name }}</h3>
-        <p>Fecha de lanzamiento: {{ set.releaseDate | date }}</p>
+        <p>Lanzamiento: {{ set.releaseDate | date }}</p>
       </div>
     </div>
+  </div>
 </div>
-  

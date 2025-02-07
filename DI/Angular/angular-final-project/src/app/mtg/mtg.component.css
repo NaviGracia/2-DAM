@@ -1,0 +1,32 @@
+.container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .sets-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+  
+  .set-item {
+    display: flex;
+    align-items: center;
+    background: #0A1828;
+    color: #BFA181;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .set-item img {
+    max-width: 100px;
+    height: auto;
+    margin-right: 15px;
+  }
+  
+  .set-info {
+    text-align: left;
+  }
+  

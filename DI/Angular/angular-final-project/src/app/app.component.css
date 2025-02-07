@@ -1,0 +1,172 @@
+/* --------- HEADER GENERAL --------- */
+header {
+    text-align: center;
+
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* --------- NAVEGACIÓN ESCRITORIO --------- */
+.desktop-nav {
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-nav a {
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+    box-shadow: inset 0 -1px 0 #BFA181;
+}
+
+.header-container .login-option{
+    position: relative;
+    width: fit-content;
+    text-align: right;
+    font-size: 18px;
+    z-index: 1;
+    top: -25px;
+    left: 84%;
+}
+
+.header-container .login-option a {
+    text-decoration: none;
+    color: #178582;
+    transition: 0.3s;
+}
+
+.header-container .login-option a:hover {
+    color: #f39c12;
+}
+
+.header-container .login-option i {
+    margin-right: 5px;
+}
+
+/* --------- MENÚ MÓVIL --------- */
+.menu-toggle {
+    color: #178582;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    display: none; /* Ocultar en escritorio */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
+/* Menú de pantalla completa (solo en móviles) */
+.fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Cuando el menú está abierto */
+.fullscreen-menu.open {
+    transform: translateY(0);
+}
+
+/* Botón para cerrar el menú */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #178582;
+    cursor: pointer;
+}
+
+/* Estilos de los enlaces del menú */
+.fullscreen-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.fullscreen-menu a {
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.fullscreen-menu a:hover {
+    color: #f39c12;
+}
+
+/* --------- INICIO DE SESIÓN (Abajo a la derecha en menú móvil) --------- */
+.fullscreen-menu .login-option {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-option i {
+    font-size: 22px;
+}
+
+.login-option:hover {
+    color: #f39c12;
+}
+
+/* --------- RESPONSIVE PARA MÓVILES --------- */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none; /* Ocultar navegación en móviles */
+    }
+
+    .header-container .login-option{
+        display: none;
+    }
+
+    .fullscreen-menu .title{
+        position: relative;
+        top: -308px;
+        font-size: 22px;
+    }
+
+    .login-option a{
+        font-size: 20px;
+        text-decoration: none;
+        color: #178582;
+    }
+
+    .title{
+        font-size: 23px;
+    }
+
+    span {
+        margin-left: 5px;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .menu-toggle {
+        display: block; /* Mostrar botón de menú en móviles */
+    }
+}

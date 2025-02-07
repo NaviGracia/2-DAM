@@ -1,11 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MagicService } from './magic.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-mtg',
-  imports: [],
+  selector: 'app-magic',
   templateUrl: './mtg.component.html',
-  styleUrl: './mtg.component.css'
+  styleUrls: ['./mtg.component.css'],
+  imports: [CommonModule],
 })
-export class MTGComponent {
+export class MagicComponent implements OnInit {
+  sets: any[] = [];
 
+  constructor(private magicService: MagicService) {}
+
+  ngOnInit(): void {
+    this.magicService.getMagicSets().subscribe((data) => {
+      this.sets = data; // Almacena los sets en el array
+    });
+  }
 }

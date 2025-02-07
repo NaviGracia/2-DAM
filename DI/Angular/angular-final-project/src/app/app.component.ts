@@ -12,5 +12,9 @@ import { RouterModule } from '@angular/router';
 }) 
 
 export class AppComponent {
-  title = 'angular-final-project';
+  menuOpen: boolean = false;
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
 }

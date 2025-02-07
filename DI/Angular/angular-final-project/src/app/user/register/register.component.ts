@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  userRegistered: boolean = false;
+  userData: { username: string; email: string; password: string } | null = null;
   
 
   constructor(private fb: FormBuilder) {

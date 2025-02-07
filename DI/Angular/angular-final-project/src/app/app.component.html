@@ -1,11 +1,43 @@
-<header>TCG Hub - Información de Juegos de Cartas</header>
-    <nav>
-        <a href="">Inicio</a>
+
+<header>
+    <div class="header-container">
+        <div class="title">TCG Hub - Información de Juegos de Cartas</div>
+
+        <div class="login-option" (click)="toggleMenu()">
+            <a [routerLink]="['/register']">
+                <i class="fa-solid fa-user"></i>
+                <span>Iniciar sesión</span>
+            </a>
+        </div>
+
+        <button class="menu-toggle" (click)="toggleMenu()">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+    </div>
+    
+    <nav class="desktop-nav">
+        <a [routerLink]="['/']">Inicio</a>
         <a [routerLink]="['/pokemon']">Pokémon TCG</a>
         <a [routerLink]="['/magic']">Magic: The Gathering</a>
     </nav>
-    <div class="search-bar">
-        <input type="text" placeholder="Buscar sets, cartas o información...">
+</header>
+
+<div class="fullscreen-menu" [class.open]="menuOpen">
+    <button class="close-menu" (click)="toggleMenu()">✖</button>
+    <div class="title">TCG Hub - Información de Juegos de Cartas</div>
+    <nav>
+        <a [routerLink]="['/']" (click)="toggleMenu()">Inicio</a>
+        <a [routerLink]="['/pokemon']" (click)="toggleMenu()">Pokémon TCG</a>
+        <a [routerLink]="['/magic']" (click)="toggleMenu()">Magic: The Gathering</a>
+    </nav>
+
+    <div class="login-option" (click)="toggleMenu()">
+        <a [routerLink]="['/register']">
+            <i class="fa-solid fa-user"></i>
+            <span>Iniciar sesión</span>
+        </a>
     </div>
+</div>
+
 <hr>
 <router-outlet></router-outlet>
