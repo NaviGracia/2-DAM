@@ -1,10 +1,24 @@
-
 <header>
     <div class="header-container">
         <div class="title">TCG Hub - Información de Juegos de Cartas</div>
 
-        <div class="login-option" (click)="toggleMenu()">
-            <a [routerLink]="['/register']">
+        <!-- Si el usuario ha iniciado sesión, mostrar su nombre con el desplegable -->
+        <div class="user-menu" *ngIf="isLoggedIn">
+            <button class="user-button" (click)="toggleUserMenu()">
+                <i class="fa-solid fa-user"></i> {{ username }}
+            </button>
+
+            <!-- Menú desplegable -->
+            <div class="dropdown-menu" *ngIf="isUserMenuOpen">
+                <a [routerLink]="['/wishlist']" (click)="toggleUserMenu()">Lista de Deseos ❤️</a>
+                <a [routerLink]="['/profile']" (click)="toggleUserMenu()">Mi Perfil</a>
+                <button (click)="logout()">Cerrar sesión</button>
+            </div>
+        </div>
+
+        <!-- Si NO ha iniciado sesión, mostrar la opción de login -->
+        <div class="login-option" *ngIf="!isLoggedIn">
+            <a [routerLink]="['/login']">
                 <i class="fa-solid fa-user"></i>
                 <span>Iniciar sesión</span>
             </a>
@@ -22,20 +36,37 @@
     </nav>
 </header>
 
-<div class="fullscreen-menu" [class.open]="menuOpen">
+<!-- Menú desplegable de pantalla completa -->
+<div class="fullscreen-menu" [class.open]="isMenuOpen">
     <button class="close-menu" (click)="toggleMenu()">✖</button>
     <div class="title">TCG Hub - Información de Juegos de Cartas</div>
+
     <nav>
         <a [routerLink]="['/']" (click)="toggleMenu()">Inicio</a>
         <a [routerLink]="['/pokemon']" (click)="toggleMenu()">Pokémon TCG</a>
         <a [routerLink]="['/magic']" (click)="toggleMenu()">Magic: The Gathering</a>
     </nav>
 
-    <div class="login-option" (click)="toggleMenu()">
-        <a [routerLink]="['/register']">
+    <!-- Si el usuario NO ha iniciado sesión -->
+    <div class="login-option" *ngIf="!isLoggedIn" (click)="toggleMenu()">
+        <a [routerLink]="['/login']">
             <i class="fa-solid fa-user"></i>
             <span>Iniciar sesión</span>
         </a>
+    </div>
+
+    <!-- Si el usuario ha iniciado sesión, mostrarlo aquí -->
+    <div class="mobile-user" *ngIf="isLoggedIn">
+        <button class="user-button" (click)="toggleUserMenu()">
+            <i class="fa-solid fa-user"></i> {{ username }}
+        </button>
+
+        <!-- Opciones del usuario en el menú móvil -->
+        <div class="user-dropdown" *ngIf="isUserMenuOpen">
+            <a [routerLink]="['/profile']" (click)="toggleUserMenu()">Mi Perfil</a>
+            <a [routerLink]="['/wishlist']" (click)="toggleUserMenu()">Lista de Deseos ❤️</a>
+            <button (click)="logout()">Cerrar sesión</button>
+        </div>
     </div>
 </div>
 

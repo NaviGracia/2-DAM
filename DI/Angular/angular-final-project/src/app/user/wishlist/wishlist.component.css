@@ -1,0 +1,28 @@
+.wishlist-container {
+    text-align: center;
+    margin: 20px auto;
+    width: 300px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+button {
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+}

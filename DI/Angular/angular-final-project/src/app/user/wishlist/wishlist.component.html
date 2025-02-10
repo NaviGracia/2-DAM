@@ -1,0 +1,15 @@
+<div class="wishlist-container">
+    <h2>Lista de Deseos</h2>
+  
+    <ul *ngIf="wishlist.length > 0; else emptyWishlist">
+      <li *ngFor="let item of wishlist">
+        <span>{{ item }}</span>
+        <button (click)="removeFromWishlist(item)">❌</button>
+      </li>
+    </ul>
+  
+    <ng-template #emptyWishlist>
+      <p>Tu lista de deseos está vacía.</p>
+    </ng-template>
+  </div>
+  

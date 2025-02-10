@@ -1,0 +1,17 @@
+<div class="container">
+    <h2>Cartas del Set: {{ setCode }}</h2>
+  
+    <div *ngIf="cards.length > 0; else noCards">
+      <div class="cards-grid">
+        <div class="card-item" *ngFor="let card of cards">
+          <img [src]="card.imageUrl || 'assets/img/no-image.png'" [alt]="card.name">
+          <h3>{{ card.name }}</h3>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noCards>
+      <p>No se encontraron cartas para este set.</p>
+    </ng-template>
+  </div>
+  

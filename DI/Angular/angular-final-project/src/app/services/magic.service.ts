@@ -20,4 +20,12 @@ export class MagicService {
       )
     );
   }
+
+  getCardsBySet(setCode: string): Observable<any[]> {
+    const url = `https://api.magicthegathering.io/v1/cards?set=${setCode}`;
+    return this.http.get<{ cards: any[] }>(url).pipe(
+      map(response => response.cards) // Extrae solo el array de cartas
+    );
+  }
+  
 }

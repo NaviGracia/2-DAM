@@ -1,14 +1,15 @@
 <div class="container">
-    <h2>Sets de Magic: The Gathering</h2>
-  
-    <div class="sets-list">
-      <div class="set-item" *ngFor="let set of sets">
-        <img [src]="set.logoUrl || 'assets/img/magic_default_logo.png'" [alt]="set.name">
-        <div class="set-info">
-          <h3>{{ set.name }}</h3>
-          <p>Lanzamiento: {{ set.releaseDate || 'Desconocido' }}</p>
-        </div>
+  <h2>Sets de Magic: The Gathering</h2>
+
+  <div class="sets-list">
+    <div class="set-item" *ngFor="let set of sets">
+      <img [src]="set.logoUrl || 'assets/img/magic_default_logo.png'" [alt]="set.name">
+      <div class="set-info">
+        <h3>
+          <a [routerLink]="['/magic/set', set.code]">{{ set.name }}</a>
+        </h3>
+        <p>Lanzamiento: {{ set.releaseDate || 'Desconocido' }}</p>
       </div>
     </div>
   </div>
-  
+</div>

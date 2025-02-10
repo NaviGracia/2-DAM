@@ -1,0 +1,19 @@
+<div class="profile-container">
+    <h2>Mi Perfil</h2>
+  
+    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+      <label for="username">Nombre de usuario:</label>
+      <input id="username" formControlName="username" type="text" required />
+  
+      <label for="email">Correo Electrónico:</label>
+      <input id="email" formControlName="email" type="email" required />
+  
+      <label for="password">Nueva Contraseña (opcional):</label>
+      <input id="password" formControlName="password" type="password" />
+  
+      <button type="submit" [disabled]="profileForm.invalid">Guardar Cambios</button>
+    </form>
+  
+    <p><a routerLink="/">Volver al inicio</a></p>
+  </div>
+  
