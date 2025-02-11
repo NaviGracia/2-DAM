@@ -24,5 +24,12 @@ export class PokemonService {
       )
     );      
   }
+
+  getCardsBySet(setId: string): Observable<any[]> {
+    const url = `https://api.pokemontcg.io/v2/cards?q=set.id:${setId}`;
+    return this.http.get<{ data: any[] }>(url).pipe(
+      map(response => response.data) 
+    );
+  }
 }
 

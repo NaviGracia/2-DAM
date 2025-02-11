@@ -3,10 +3,12 @@
 
   <div class="sets-list">
     <div class="set-item" *ngFor="let set of sets">
-      <img [src]="set.images.logo" [alt]="set.name">
+      <img [src]="set.images.logo || 'assets/img/pokemon_default_logo.png'" [alt]="set.name">
       <div class="set-info">
-        <h3>{{ set.name }}</h3>
-        <p>Lanzamiento: {{ set.releaseDate | date }}</p>
+        <h3>
+          <a [routerLink]="['/pokemon/set', set.id]">{{ set.name }}</a>
+        </h3>
+        <p>Lanzamiento: {{ set.releaseDate || 'Desconocido' }}</p>
       </div>
     </div>
   </div>
