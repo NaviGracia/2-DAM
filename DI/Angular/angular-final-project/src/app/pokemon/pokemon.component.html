@@ -9,6 +9,9 @@
           <a [routerLink]="['/pokemon/set', set.id]">{{ set.name }}</a>
         </h3>
         <p>Lanzamiento: {{ set.releaseDate || 'Desconocido' }}</p>
+        <button (click)="addToWishlist(set)" class="favorite-btn">
+          ❤️
+        </button>
       </div>
     </div>
   </div>
