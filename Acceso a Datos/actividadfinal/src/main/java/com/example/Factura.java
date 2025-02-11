@@ -77,31 +77,61 @@ public class Factura {
     }
 
     private static void guardarFactura(MongoCollection<Document> coleccionFacturas, Factura factura) {
-        Document docFactura = new Document("vivienda", factura.vivienda)
-            .append("dni", factura.dni)
-            .append("mes", factura.mes)
-            .append("facturaTotal", factura.facturaTotal)
-            .append("consumoMes", factura.consumoMes);
+        // Buscar si ya existe la factura antes de insertarla
+        Document facturaExistente = coleccionFacturas.find(
+            Filters.and(
+                Filters.eq("vivienda", factura.vivienda),
+                Filters.eq("mes", factura.mes)
+            )
+        ).first();
+    
+        if (facturaExistente == null) {
+            Document docFactura = new Document("vivienda", factura.vivienda)
+                .append("dni", factura.dni)
+                .append("mes", factura.mes)
+                .append("facturaTotal", factura.facturaTotal)
+                .append("consumoMes", factura.consumoMes);
+    
+            coleccionFacturas.insertOne(docFactura);
+            System.out.println("💾 Factura guardada en MongoDB en la colección: " + coleccionFacturas.getNamespace().getCollectionName());
+        } else {
+            System.out.println("⚠️ Factura ya existente, no se inserta nuevamente.");
+        }
+    }
+    
 
-        coleccionFacturas.insertOne(docFactura);
-        System.out.println("💾 Factura guardada en MongoDB en la colección: " + coleccionFacturas.getNamespace().getCollectionName());
+    public static void buscarFacturas(MongoDatabase db, String mes, String vivienda) {
+        String nombreColeccionFacturas = "f" + mes;
+        MongoCollection<Document> coleccionFacturas = db.getCollection(nombreColeccionFacturas);
+    
+        // Buscar todas las facturas que coincidan
+        MongoCursor<Document> cursor = coleccionFacturas.find(Filters.eq("vivienda", vivienda)).iterator();
+    
+        boolean encontrado = false;
+        while (cursor.hasNext()) {
+            Document factura = cursor.next();
+            System.out.println("✅ Factura encontrada: " + factura.toJson());
+            encontrado = true;
+        }
+    
+        if (!encontrado) {
+            System.out.println("❌ No se encontró ninguna factura para la vivienda: " + vivienda + " en " + mes);
+        }
     }
 
-    public class BuscarFactura {
-    public static Document buscarFactura(MongoDatabase db, String mes, String vivienda) {
+    public static void eliminarFactura(MongoDatabase db, String mes, String vivienda) {
         String nombreColeccionFacturas = "f" + mes;
-
         MongoCollection<Document> coleccionFacturas = db.getCollection(nombreColeccionFacturas);
-
-        Document factura = coleccionFacturas.find(Filters.eq("vivienda", vivienda)).first();
-
-        if (factura != null) {
-            System.out.println("✅ Factura encontrada: " + factura.toJson());
+    
+        // Buscar y eliminar la factura
+        Document facturaEliminada = coleccionFacturas.findOneAndDelete(Filters.eq("vivienda", vivienda));
+    
+        if (facturaEliminada != null) {
+            System.out.println("🗑️ Factura eliminada correctamente para la vivienda: " + vivienda + " en " + mes);
         } else {
             System.out.println("❌ No se encontró ninguna factura para la vivienda: " + vivienda + " en " + mes);
         }
-        
-        return factura;
     }
+    
 }
-}
+

@@ -6,6 +6,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.MongoIterable;
+import com.mongodb.client.model.Filters;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -25,12 +27,20 @@ public class Principal {
 
 			db = conectarMongoDB();
 			//GENERAMOS LOS CONTRATOS DE UN MES
-			MongoCollection<Document> collection = db.getCollection(crearColeccion(db));
-			generarContratos(collection);
+			//MongoCollection<Document> collection = db.getCollection(crearColeccion(db));
+			//generarContratos(collection);
 
 			//GENERAMOS LAS FACTURAS DE UN MES
-			Factura.generarFacturas(db, db.getCollection("febrero"));
+			//Factura.generarFacturas(db, db.getCollection("febrero"));
 
+			//CONSULTA OBTENER UNA FACTURA DE UNA VIVIENDA EN UN MES DETERMINADO
+			Factura.buscarFacturas(db, "febrero", "Avenida Baleares 0");
+
+			//ACTUALIZAR CLIENTE DE UN CONTRATO
+			actualizarDniContrato(db, "febrero", "Avenida Baleares 0", "11111111A");
+
+			//ELIMINAR FACTURA DE UNA VIVIENDA EN UN MES DETERMINADO
+			Factura.eliminarFactura(db, "febrero", "Avenida Baleares 0");
 		} finally {
 
 		}
@@ -105,5 +115,24 @@ public class Principal {
 			diasMes.add(preciosPorHora);
 		}
 	}
+
+	public static void actualizarDniContrato(MongoDatabase db, String mes, String vivienda, String nuevoDni) {
+        String nombreColeccionContratos = mes; 
+        MongoCollection<Document> coleccionContratos = db.getCollection(nombreColeccionContratos);
+    
+        Document contratoExistente = coleccionContratos.find(Filters.eq("vivienda", vivienda)).first();
+    
+        if (contratoExistente != null) {
+            // Actualizar el DNI dentro del campo "cliente"
+            coleccionContratos.updateOne(
+                Filters.eq("vivienda", vivienda), 
+                new Document("$set", new Document("cliente.dni", nuevoDni))
+            );
+    
+            System.out.println("✅ DNI del contrato actualizado correctamente para la vivienda: " + vivienda);
+        } else {
+            System.out.println("❌ No se encontró ningún contrato para la vivienda: " + vivienda + " en " + mes);
+        }
+    }
 }
 
