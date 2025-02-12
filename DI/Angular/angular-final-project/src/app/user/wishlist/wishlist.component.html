@@ -1,15 +1,13 @@
 <div class="wishlist-container">
-    <h2>Lista de Deseos</h2>
-  
-    <ul *ngIf="wishlist.length > 0; else emptyWishlist">
-      <li *ngFor="let item of wishlist">
-        <span>{{ item }}</span>
-        <button (click)="removeFromWishlist(item)">❌</button>
-      </li>
-    </ul>
-  
-    <ng-template #emptyWishlist>
-      <p>Tu lista de deseos está vacía.</p>
-    </ng-template>
+  <h2>Lista de Deseos</h2>
+  <div class="wishlist-list">
+    <div class="wishlist-item" *ngFor="let item of wishlist">
+      <img [src]="item.images?.logo || item.images?.small || 'assets/img/default.png'" [alt]="item.name">
+      <div class="wishlist-info">
+        <h3>{{ item.name }}</h3>
+        <p>Set: {{ item.set?.name || 'Desconocido' }}</p>
+        <button (click)="removeFromWishlist(item)" class="remove-btn">❌</button>
+      </div>
+    </div>
   </div>
-  
+</div>
