@@ -1,33 +1,22 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class WishlistService {
-  private wishlist: string[] = [];
+  private wishlist: any[] = [];
 
-  constructor() {
-    const savedWishlist = localStorage.getItem('wishlist');
-    this.wishlist = savedWishlist ? JSON.parse(savedWishlist) : [];
-  }
-
-  addToWishlist(item: string) {
-    if (!this.wishlist.includes(item)) {
+  addToWishlist(item: any): void {
+    if (!this.wishlist.some(fav => fav.id === item.id)) {
       this.wishlist.push(item);
-      localStorage.setItem('wishlist', JSON.stringify(this.wishlist));
     }
   }
 
-  removeFromWishlist(item: string) {
-    this.wishlist = this.wishlist.filter(card => card !== item);
-    localStorage.setItem('wishlist', JSON.stringify(this.wishlist));
-  }
-
-  getWishlist(): string[] {
+  getWishlist(): any[] {
     return this.wishlist;
   }
 
-  isInWishlist(item: string): boolean {
-    return this.wishlist.includes(item);
+  removeFromWishlist(item: any): void {
+    this.wishlist = this.wishlist.filter(fav => fav.id !== item.id);
   }
 }

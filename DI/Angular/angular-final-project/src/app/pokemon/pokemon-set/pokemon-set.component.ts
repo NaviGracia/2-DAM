@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PokemonService } from '../../services/pokemon.service';
 import { CommonModule } from '@angular/common';
+import { WishlistService } from '../../services/wishlist.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ export class PokemonSetComponent implements OnInit {
   setId: string = '';
   cards: any[] = [];
 
-  constructor(private route: ActivatedRoute, private pokemonService: PokemonService) {}
+  constructor(private route: ActivatedRoute, private pokemonService: PokemonService, private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -28,4 +29,9 @@ export class PokemonSetComponent implements OnInit {
       this.cards = data;
     });
   }
+
+  addToWishlist(item: any): void {
+    this.wishlistService.addToWishlist(item);
+  }
+  
 }
