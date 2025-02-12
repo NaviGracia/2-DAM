@@ -6,8 +6,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.todo_list_compose.ui.TaskScreen
-import com.example.todo_list_compose.viewmodel.TaskViewModel
+import com.example.mytodolist.ui.TaskScreen
+import com.example.mytodolist.viewmodel.TaskViewModel
+
 
 @Composable
 fun NavGraph(modifier: Modifier, viewModel: TaskViewModel) {

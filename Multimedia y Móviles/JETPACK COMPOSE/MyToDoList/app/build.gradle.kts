@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.mytodolist"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.mytodolist"
@@ -40,6 +40,10 @@ android {
 }
 
 dependencies {
+    implementation("androidx.navigation:navigation-compose:2.7.5")
+    implementation("androidx.compose.runtime:runtime-saveable:1.6.0")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)

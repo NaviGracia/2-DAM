@@ -1,15 +1,20 @@
 package com.example.mytodolist.ui
 
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.*
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.todo_list_compose.components.BottomNavigationBar
-import com.example.todo_list_compose.navigation.NavGraph
-import com.example.todo_list_compose.viewmodel.TaskViewModel
+import com.example.mytodolist.components.BottomNavigationBar
+import com.example.mytodolist.navigation.NavGraph
+import com.example.mytodolist.viewmodel.TaskViewModel
 
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TodoApp(viewModel: TaskViewModel = viewModel()) {
     Scaffold(

@@ -132,6 +132,29 @@ public class Factura {
             System.out.println("❌ No se encontró ninguna factura para la vivienda: " + vivienda + " en " + mes);
         }
     }
+
+    public static void actualizarDniFactura(MongoDatabase db, String mes, String vivienda, String nuevoDni) {
+        String nombreColeccionFacturas = "f" + mes;
+        MongoCollection<Document> coleccionFacturas = db.getCollection(nombreColeccionFacturas);
     
+        Document facturaExistente = coleccionFacturas.find(Filters.eq("vivienda", vivienda)).first();
+    
+        if (facturaExistente != null) {
+            System.out.println("📄 Factura encontrada antes de actualizar: " + facturaExistente.toJson());
+    
+            long updatedCount = coleccionFacturas.updateOne(
+                Filters.eq("vivienda", vivienda), 
+                new Document("$set", new Document("dni", nuevoDni))
+            ).getModifiedCount();
+    
+            if (updatedCount > 0) {
+                System.out.println("✅ DNI de la factura actualizado correctamente para la vivienda: " + vivienda);
+            } else {
+                System.out.println("⚠️ La actualización no modificó ningún documento. Verifica si el DNI ya era el mismo.");
+            }
+        } else {
+            System.out.println("❌ No se encontró ninguna factura para la vivienda: " + vivienda + " en " + mes);
+        }
+    }
 }
 
