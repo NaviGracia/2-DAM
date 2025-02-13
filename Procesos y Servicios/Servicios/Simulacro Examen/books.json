@@ -1,0 +1,201 @@
+[
+    {
+      "titulo": "1984",
+      "autor": "George Orwell",
+      "ano_publicacion": 1949,
+      "generos": ["Ciencia ficción", "Distopía"],
+      "personajes": ["Winston Smith", "Julia", "O'Brien", "Big Brother", "Mr. Charrington"],
+      "numero_paginas": 328,
+      "editoriales": ["Secker & Warburg", "Penguin Books", "Debolsillo"],
+      "ISBN": "978-0451524935",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/7222246-L.jpg"
+    },
+    {
+      "titulo": "Cien años de soledad",
+      "autor": "Gabriel García Márquez",
+      "ano_publicacion": 1967,
+      "generos": ["Realismo mágico", "Ficción"],
+      "personajes": ["José Arcadio Buendía", "Úrsula Iguarán", "Aureliano Buendía", "Amaranta", "Rebeca"],
+      "numero_paginas": 471,
+      "editoriales": ["Editorial Sudamericana", "Debolsillo"],
+      "ISBN": "978-0307474728",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/8235113-L.jpg"
+    },
+    {
+      "titulo": "El señor de los anillos",
+      "autor": "J.R.R. Tolkien",
+      "ano_publicacion": 1954,
+      "generos": ["Fantasía épica"],
+      "personajes": ["Frodo Bolsón", "Gandalf", "Aragorn", "Legolas", "Gollum"],
+      "numero_paginas": 1178,
+      "editoriales": ["George Allen & Unwin", "Minotauro"],
+      "ISBN": "978-0261102385",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/8235311-L.jpg"
+    },
+    {
+      "titulo": "Dune",
+      "autor": "Frank Herbert",
+      "ano_publicacion": 1965,
+      "generos": ["Ciencia ficción", "Aventura"],
+      "personajes": ["Paul Atreides", "Barón Harkonnen", "Duncan Idaho", "Chani", "Gurney Halleck"],
+      "numero_paginas": 412,
+      "editoriales": ["Chilton Books", "Ace Books", "Debolsillo"],
+      "ISBN": "978-0441013593",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/7222256-L.jpg"
+    },
+    {
+      "titulo": "Crimen y castigo",
+      "autor": "Fiódor Dostoyevski",
+      "ano_publicacion": 1866,
+      "generos": ["Novela negra", "Filosofía", "Drama"],
+      "personajes": ["Rodion Raskólnikov", "Sonia Marmeládova", "Porfirio Petrovich", "Dmitri Razumijin", "Arkadi Svidrigáilov"],
+      "numero_paginas": 671,
+      "editoriales": ["The Russian Messenger", "Alianza Editorial"],
+      "ISBN": "978-0143058144",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/8228806-L.jpg"
+    },
+    {
+      "titulo": "Los juegos del hambre",
+      "autor": "Suzanne Collins",
+      "ano_publicacion": 2008,
+      "generos": ["Ciencia ficción", "Distopía", "Juvenil"],
+      "personajes": ["Katniss Everdeen", "Peeta Mellark", "Gale Hawthorne", "Haymitch Abernathy", "Effie Trinket"],
+      "numero_paginas": 374,
+      "editoriales": ["Scholastic Corporation", "Molino"],
+      "ISBN": "978-8427202122",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/7222298-L.jpg"
+    },
+    {
+      "titulo": "Moby-Dick",
+      "autor": "Herman Melville",
+      "ano_publicacion": 1851,
+      "generos": ["Aventura", "Clásico", "Ficción"],
+      "personajes": ["Ishmael", "Capitán Ahab", "Queequeg", "Starbuck", "Moby Dick"],
+      "numero_paginas": 635,
+      "editoriales": ["Harper & Brothers", "Penguin Classics"],
+      "ISBN": "978-0142437247",
+      "imagen_portada": "https://covers.openlibrary.org/b/id/8235432-L.jpg"
+    },
+    {
+        "titulo": "Los miserables",
+        "autor": "Victor Hugo",
+        "ano_publicacion": 1862,
+        "generos": ["Histórico", "Drama"],
+        "personajes": ["Jean Valjean", "Javert", "Fantine", "Cosette", "Marius Pontmercy"],
+        "numero_paginas": 1463,
+        "editoriales": ["Librarie Pagnerre", "Penguin Classics"],
+        "ISBN": "978-0140444308",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235461-L.jpg"
+    },
+    {
+        "titulo": "Rayuela",
+        "autor": "Julio Cortázar",
+        "ano_publicacion": 1963,
+        "generos": ["Ficción", "Experimental"],
+        "personajes": ["Horacio Oliveira", "La Maga", "Traveler", "Talita", "Morelli"],
+        "numero_paginas": 600,
+        "editoriales": ["Editorial Sudamericana"],
+        "ISBN": "978-8437604947",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235462-L.jpg"
+    },
+    {
+        "titulo": "Fahrenheit 451",
+        "autor": "Ray Bradbury",
+        "ano_publicacion": 1953,
+        "generos": ["Ciencia ficción", "Distopía"],
+        "personajes": ["Guy Montag", "Mildred Montag", "Captain Beatty", "Clarisse McClellan", "Faber"],
+        "numero_paginas": 256,
+        "editoriales": ["Ballantine Books", "Simon & Schuster"],
+        "ISBN": "978-1451673319",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235463-L.jpg"
+    },
+    {
+        "titulo": "Drácula",
+        "autor": "Bram Stoker",
+        "ano_publicacion": 1897,
+        "generos": ["Terror", "Gótico"],
+        "personajes": ["Drácula", "Jonathan Harker", "Mina Harker", "Van Helsing", "Lucy Westenra"],
+        "numero_paginas": 418,
+        "editoriales": ["Archibald Constable and Company", "Penguin Classics"],
+        "ISBN": "978-0141439846",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235464-L.jpg"
+    },
+    {
+        "titulo": "El nombre de la rosa",
+        "autor": "Umberto Eco",
+        "ano_publicacion": 1980,
+        "generos": ["Misterio", "Histórico"],
+        "personajes": ["Guillermo de Baskerville", "Adso de Melk", "Jorge de Burgos", "Bernardo Gui", "Abad Abbone"],
+        "numero_paginas": 592,
+        "editoriales": ["Bompiani", "Lumen"],
+        "ISBN": "978-8426421425",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235465-L.jpg"
+    },
+    {
+        "titulo": "La sombra del viento",
+        "autor": "Carlos Ruiz Zafón",
+        "ano_publicacion": 2001,
+        "generos": ["Misterio", "Histórico", "Drama"],
+        "personajes": ["Daniel Sempere", "Julián Carax", "Fermín Romero de Torres", "Beatriz Aguilar", "Nuria Monfort"],
+        "numero_paginas": 576,
+        "editoriales": ["Planeta", "Penguin Random House"],
+        "ISBN": "978-8408036427",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235466-L.jpg"
+    },
+    {
+        "titulo": "Don Quijote de la Mancha",
+        "autor": "Miguel de Cervantes",
+        "ano_publicacion": 1605,
+        "generos": ["Aventura", "Sátira", "Clásico"],
+        "personajes": ["Don Quijote", "Sancho Panza", "Dulcinea del Toboso", "Rocinante", "El Bachiller Sansón Carrasco"],
+        "numero_paginas": 863,
+        "editoriales": ["Francisco de Robles", "Cátedra"],
+        "ISBN": "978-8424119997",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235467-L.jpg"
+    },
+    {
+        "titulo": "El camino de los reyes",
+        "autor": "Brandon Sanderson",
+        "ano_publicacion": 2010,
+        "generos": ["Fantasía épica"],
+        "personajes": ["Kaladin Stormblessed", "Dalinar Kholin", "Shallan Davar", "Szeth", "Adolin Kholin"],
+        "numero_paginas": 1007,
+        "editoriales": ["Tor Books", "Nova"],
+        "ISBN": "978-0765326355",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235501-L.jpg"
+      },
+      {
+        "titulo": "Aprendiz de asesino",
+        "autor": "Robin Hobb",
+        "ano_publicacion": 1995,
+        "generos": ["Fantasía", "Aventura"],
+        "personajes": ["FitzChivalry Farseer", "El Bufón", "Verity", "Regal", "Burrich"],
+        "numero_paginas": 448,
+        "editoriales": ["HarperVoyager", "Debolsillo"],
+        "ISBN": "978-0553573398",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235502-L.jpg"
+      },
+      {
+        "titulo": "El nombre del viento",
+        "autor": "Patrick Rothfuss",
+        "ano_publicacion": 2007,
+        "generos": ["Fantasía", "Aventura"],
+        "personajes": ["Kvothe", "Bast", "Denna", "Ambrose Jakis", "Simmon"],
+        "numero_paginas": 662,
+        "editoriales": ["DAW Books", "Plaza & Janés"],
+        "ISBN": "978-0756404741",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235503-L.jpg"
+      },
+      {
+        "titulo": "La voz de las espadas",
+        "autor": "Joe Abercrombie",
+        "ano_publicacion": 2006,
+        "generos": ["Fantasía oscura", "Aventura"],
+        "personajes": ["Logen Nuevededos", "Jezal dan Luthar", "Sand dan Glokta", "Bayaz", "Ferro Maljinn"],
+        "numero_paginas": 560,
+        "editoriales": ["Gollancz", "Alianza Editorial"],
+        "ISBN": "978-0575079793",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235504-L.jpg"
+      }
+]
+      

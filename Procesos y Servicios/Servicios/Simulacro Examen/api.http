@@ -1,0 +1,27 @@
+### Recuperar todos los libros, mostrando únicamente su nombre, que debe ser un enlace a la url de la imagen
+GET http://localhost:1235/
+
+### Recuperar la información de un libro por ISBN. Se debe mostrar una web sencilla con toda la información del libro
+GET http://localhost:1235/978-0756404741
+
+### Recuperar el json de un libro por ISBN
+GET http://localhost:1235/978-0553573398/json
+
+### Recuperar todos los libros por autor
+GET http://localhost:1235/books?autor=Brandon+Sanderson
+
+### Añadir un libro con POST
+POST http://localhost:1235/books
+Content-Type: application/json
+
+{
+        "titulo": "Trono de cristal",
+        "autor": "Sarah J. Maas",
+        "ano_publicacion": 2012,
+        "generos": ["Fantasía", "Juvenil", "Romance"],
+        "personajes": ["Celaena Sardothien", "Chaol Westfall", "Dorian Havilliard", "Nehemia Ytger", "Arobynn Hamel"],
+        "numero_paginas": 432,
+        "editoriales": ["Bloomsbury", "Editorial Hidra"],
+        "ISBN": "978-1619630345",
+        "imagen_portada": "https://covers.openlibrary.org/b/id/8235505-L.jpg"
+}
