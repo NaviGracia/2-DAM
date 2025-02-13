@@ -5,5 +5,8 @@
     <p>Tipo: {{ card.type }}</p>
     <p>Rareza: {{ card.rarity }}</p>
     <p>Mana: {{ card.manaCost || 'N/A' }}</p>
+    <button (click)="addToWishlist(card)" class="favorite-btn">
+      ❤️
+    </button>
   </div>
 </div>
