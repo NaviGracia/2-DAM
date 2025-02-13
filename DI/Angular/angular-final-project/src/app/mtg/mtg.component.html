@@ -3,12 +3,15 @@
 
   <div class="sets-list">
     <div class="set-item" *ngFor="let set of sets">
-      <img [src]="set.logoUrl || 'assets/img/magic_default_logo.png'" [alt]="set.name">
+      <img [src]="set.logo" [alt]="set.name">
       <div class="set-info">
         <h3>
           <a [routerLink]="['/magic/set', set.code]">{{ set.name }}</a>
         </h3>
         <p>Lanzamiento: {{ set.releaseDate || 'Desconocido' }}</p>
+        <button (click)="addToFavorites(set)" class="favorite-btn">
+          ❤️
+        </button>
       </div>
     </div>
   </div>

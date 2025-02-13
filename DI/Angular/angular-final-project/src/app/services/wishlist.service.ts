@@ -4,19 +4,21 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class WishlistService {
-  private wishlist: any[] = [];
+  private favorites: any[] = [];
 
-  addToWishlist(item: any): void {
-    if (!this.wishlist.some(fav => fav.id === item.id)) {
-      this.wishlist.push(item);
+  constructor() {}
+
+  addToFavorites(item: any) {
+    if (!this.favorites.some(fav => fav.id === item.id)) {
+      this.favorites.push(item);
     }
   }
 
-  getWishlist(): any[] {
-    return this.wishlist;
+  removeFromFavorites(item: any) {
+    this.favorites = this.favorites.filter(fav => fav.id !== item.id);
   }
 
-  removeFromWishlist(item: any): void {
-    this.wishlist = this.wishlist.filter(fav => fav.id !== item.id);
+  getFavorites() {
+    return this.favorites;
   }
 }

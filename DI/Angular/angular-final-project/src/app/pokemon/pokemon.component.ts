@@ -22,7 +22,7 @@ export class PokemonComponent implements OnInit {
   }
 
   addToWishlist(item: any): void {
-    this.wishlistService.addToWishlist(item);
+    this.wishlistService.addToFavorites(item);
   }
   
 }
