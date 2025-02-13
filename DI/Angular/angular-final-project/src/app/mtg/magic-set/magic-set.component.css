@@ -1,27 +1,32 @@
 .container {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    padding: 20px;
-  }
-  
-  .card-item {
-    background: #0A1828;
-    color: #BFA181;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-  }
-  
-  .card-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
+  text-align: center;
+  padding: 20px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Ajusta el tamaño de cada carta */
+  gap: 15px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.card-item {
+  background: #0A1828;
+  color: #BFA181;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-item:hover {
+  transform: scale(1.05);
+}
+
+.card-item img {
+  width: 20%;  
+  height: auto;
+  border-radius: 5px;
+}
