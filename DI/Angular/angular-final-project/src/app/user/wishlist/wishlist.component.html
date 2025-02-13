@@ -2,10 +2,10 @@
   <h2>Lista de Deseos</h2>
   <div class="wishlist-list">
     <div class="wishlist-item" *ngFor="let item of wishlist">
-      <img [src]="item.images?.logo || item.images?.small || 'assets/img/default.png'" [alt]="item.name">
+      <img [src]="item.images?.small || item.imageUrl || item.logo || item.images?.logo || 'assets/img/default.png'" [alt]="item.name">
       <div class="wishlist-info">
         <h3>{{ item.name }}</h3>
-        <p>Set: {{ item.set?.name || 'Desconocido' }}</p>
+        <p>Set: {{ item.set?.name || item.name || 'Desconocido' }}</p>
         <button (click)="removeFromWishlist(item)" class="remove-btn">❌</button>
       </div>
     </div>
