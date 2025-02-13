@@ -200,7 +200,13 @@ header {
 /* --------- RESPONSIVE PARA MÓVILES --------- */
 @media (max-width: 768px) {
     .title{
+        width: 85%;
         font-size: 23px;
+        z-index: 0;
+    }
+
+    .close-menu{
+        z-index: 1;
     }
 
     .user-menu{
@@ -241,4 +247,24 @@ header {
         text-decoration: none;
         color: #BFA181;
     }
+
+    .dropdown-menu{
+        height: 96px;
+    }
+
+    .dropdown-menu a, .dropdown-menu button {
+        text-decoration: none;
+        font-size: 18px; /* Igual que los otros enlaces */
+        transition: color 0.3s;
+        color: #17a2b8; /* Color azul como los enlaces de navegación */
+        display: flexbox;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    .dropdown-menu a:hover, .dropdown-menu button:hover {
+        box-shadow: inset 0 -1px 0 #BFA181; /* Línea de sombra inferior, como los otros enlaces */
+        color: #f39c12;
+    }
+    
 }

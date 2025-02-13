@@ -24,4 +24,5 @@ export class MagicComponent implements OnInit {
   addToFavorites(set: any){
     this.wishlistService.addToFavorites(set);
   }
+ 
 }

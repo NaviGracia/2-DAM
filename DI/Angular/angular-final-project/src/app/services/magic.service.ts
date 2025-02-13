@@ -18,19 +18,23 @@ export class MagicService {
       scryfallSets: this.http.get<{ data: any[] }>(this.scryfallApiUrl)
     }).pipe(
       map(({ mtgSets, scryfallSets }) =>
-        mtgSets.sets.map(set => {
-          const scryfallSet = scryfallSets.data.find(sSet => sSet.code.toLowerCase() === set.code.toLowerCase());
-          return {
-            id: set.id,
-            name: set.name,
-            releaseDate: set.releaseDate,
-            code: set.code,
-            logo: scryfallSet ? scryfallSet.icon_svg_uri : 'assets/img/magic_default_logo.png' 
-          };
-        })
+        mtgSets.sets
+          .map(set => {
+            const scryfallSet = scryfallSets.data.find(sSet => sSet.code.toLowerCase() === set.code.toLowerCase());
+            return {
+              id: set.id,
+              name: set.name,
+              releaseDate: set.releaseDate,
+              code: set.code,
+              logo: scryfallSet ? scryfallSet.icon_svg_uri : 'assets/img/magic_default_logo.png'
+            };
+          })
+          .filter(set => set.releaseDate)
+          .sort((a, b) => new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime()) 
       )
     );
-  }
+}
+
 
   getCardsBySet(setCode: string): Observable<any[]> {
     const url = `https://api.magicthegathering.io/v1/cards?set=${setCode}`;
