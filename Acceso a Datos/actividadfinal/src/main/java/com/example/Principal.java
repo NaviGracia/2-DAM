@@ -43,9 +43,9 @@ public class Principal {
 
 			//POSTGRESQL
 			Connection sql = psql.conectar();
-			psql.generarContratos(sql, diasMes);
-		} finally {
-
+			psql.generarConsumoMes(sql, diasMes);
+		} catch(Exception e) {
+			System.out.println(e);
 		}
  	}
 
