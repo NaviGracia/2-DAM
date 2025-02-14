@@ -23,20 +23,35 @@ fun TaskScreen(viewModel: TaskViewModel = viewModel()) {
     var taskPriority by remember { mutableStateOf(TextFieldValue()) }
     var errorMessage by remember { mutableStateOf<String?>(null) }
 
-    Column {
-        TextField(
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        verticalArrangement = Arrangement.Top
+    ) {
+        Text(text = "To-Do List", style = MaterialTheme.typography.headlineSmall)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        OutlinedTextField(
             value = taskName,
             onValueChange = { taskName = it },
             label = { Text("Task Name") },
             modifier = Modifier.fillMaxWidth()
         )
-        TextField(
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
             value = taskDescription,
             onValueChange = { taskDescription = it },
             label = { Text("Description") },
             modifier = Modifier.fillMaxWidth()
         )
-        TextField(
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        OutlinedTextField(
             value = taskPriority,
             onValueChange = { taskPriority = it },
             label = { Text("Priority (Alta, Media, Baja)") },
@@ -44,36 +59,40 @@ fun TaskScreen(viewModel: TaskViewModel = viewModel()) {
             keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Text)
         )
 
+        Spacer(modifier = Modifier.height(8.dp))
+
         if (errorMessage != null) {
             Text(
                 text = errorMessage!!,
                 color = MaterialTheme.colorScheme.error,
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(bottom = 8.dp)
             )
         }
 
-        Spacer(modifier = Modifier.height(8.dp))
+        Button(
+            onClick = {
+                if (taskName.text.isBlank() || taskDescription.text.isBlank() || taskPriority.text.isBlank()) {
+                    errorMessage = "Todos los campos son obligatorios"
+                } else {
+                    errorMessage = null
+                    val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
+                    viewModel.addTask(taskName.text, taskDescription.text, taskPriority.text, currentDate)
 
-        Button(onClick = {
-            if (taskName.text.isBlank() || taskDescription.text.isBlank() || taskPriority.text.isBlank()) {
-                errorMessage = "Todos los campos son obligatorios"
-            } else {
-                errorMessage = null
-                val currentDate = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(Date())
-                viewModel.addTask(taskName.text, taskDescription.text, taskPriority.text, currentDate)
-
-                // Limpiar campos después de agregar la tarea
-                taskName = TextFieldValue("")
-                taskDescription = TextFieldValue("")
-                taskPriority = TextFieldValue("")
-            }
-        }) {
+                    taskName = TextFieldValue("")
+                    taskDescription = TextFieldValue("")
+                    taskPriority = TextFieldValue("")
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
             Text("Add Task")
         }
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        LazyColumn {
+        LazyColumn(
+            modifier = Modifier.weight(1f)
+        ) {
             items(viewModel.tasks) { task ->
                 TaskCard(task = task, onDelete = { viewModel.deleteTask(task.id) })
             }
