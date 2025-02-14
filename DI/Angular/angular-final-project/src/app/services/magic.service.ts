@@ -36,10 +36,36 @@ export class MagicService {
 }
 
 
-  getCardsBySet(setCode: string): Observable<any[]> {
-    const url = `https://api.magicthegathering.io/v1/cards?set=${setCode}`;
-    return this.http.get<{ cards: any[] }>(url).pipe(
-      map(response => response.cards) 
-    );
-  }
+getMagicSetCards(setCode: string): Observable<any[]> {
+  const mtgCardsUrl = `https://api.magicthegathering.io/v1/cards?set=${setCode}`;
+  const scryfallCardsUrl = `https://api.scryfall.com/cards/search?q=set%3A${setCode}`;
+
+  return forkJoin({
+    mtgCards: this.http.get<{ cards: any[] }>(mtgCardsUrl),
+    scryfallCards: this.http.get<{ data: any[] }>(scryfallCardsUrl)
+  }).pipe(
+    map(({ mtgCards, scryfallCards }) => {
+      console.log('Scryfall Cards:', scryfallCards.data); // 👈 Verifica si Scryfall devuelve datos
+
+      return mtgCards.cards.map(card => {
+        const scryfallCard = scryfallCards.data.find(sc => sc.name.toLowerCase() === card.name.toLowerCase());
+        
+        console.log('Carta encontrada:', card.name, ' - Imagen:', scryfallCard?.image_uris?.normal); // 👈 Verifica si se asigna imagen
+        
+        return {
+          id: card.id,
+          name: card.name,
+          type: card.type,
+          rarity: card.rarity,
+          manaCost: card.manaCost,
+          set: card.set,
+          imageUrl: scryfallCard?.image_uris?.normal || card.imageUrl || 'assets/img/magic_default_card.png'
+        };
+      });
+    })
+  );
+}
+
+
+
 }

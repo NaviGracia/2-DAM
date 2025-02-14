@@ -14,7 +14,7 @@ export const routes: Routes = [
   { path: 'pokemon', component: PokemonComponent },
   { path: 'pokemon/set/:setId', component: PokemonSetComponent },
   { path: 'magic', component: MagicComponent },
-  { path: 'magic/set/:setCode', component: MagicSetComponent },
+  { path: 'magic/set/:id', component: MagicSetComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'wishlist', component: WishlistComponent },

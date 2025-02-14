@@ -11,21 +11,20 @@ import { WishlistService } from '../../services/wishlist.service';
   imports: [CommonModule],
 })
 export class MagicSetComponent implements OnInit {
-  setCode: string = '';
+  setId: string = '';
   cards: any[] = [];
 
   constructor(private route: ActivatedRoute, private magicService: MagicService, private wishlistService: WishlistService) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
-      this.setCode = params.get('setCode') || '';
-      this.loadCards();
-    });
-  }
-
-  loadCards(): void {
-    this.magicService.getCardsBySet(this.setCode).subscribe((data) => {
-      this.cards = data;
+      this.setId = params.get('id') || '';
+      if (this.setId) {
+        this.magicService.getMagicSetCards(this.setId).subscribe(cards => {
+          this.cards = cards;
+          console.log('Cartas después de asignarlas:', this.cards); // 👈 Verifica si las imágenes llegan aquí
+        });
+      }
     });
   }
 
